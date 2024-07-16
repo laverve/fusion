@@ -5,7 +5,7 @@
     },
     "dependencies": {
         "@jest/globals": "^29.7.0",
-        "@laverve/i18n-provider": "^1.0.4",
+        "@laverve/i18n-provider": "^1.0.5",
         "@testing-library/jest-dom": "^6.1.4",
         "@testing-library/react": "^14.0.0",
         "@testing-library/user-event": "^14.5.1",
@@ -49,6 +49,6 @@
         "lint:staged": "lint-staged",
         "build": "tsc"
     },
-    "version": "1.0.4",
+    "version": "1.0.5",
     "webpack": "./src/index.ts"
 }
