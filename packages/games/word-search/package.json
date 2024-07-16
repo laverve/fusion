@@ -6,11 +6,11 @@
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.4.2",
         "@fortawesome/react-fontawesome": "^0.2.0",
-        "@laverve/design-provider": "^1.0.7",
-        "@laverve/fusion": "^1.0.7",
-        "@laverve/game-layout": "^1.0.7",
-        "@laverve/i18n-provider": "^1.0.7",
-        "@laverve/timer": "^1.0.7",
+        "@laverve/design-provider": "^1.0.8",
+        "@laverve/fusion": "^1.0.8",
+        "@laverve/game-layout": "^1.0.8",
+        "@laverve/i18n-provider": "^1.0.8",
+        "@laverve/timer": "^1.0.8",
         "@nextui-org/react": "^2.1.13",
         "classnames": "^2.3.2",
         "color2k": "^2.0.2",
@@ -48,6 +48,6 @@
         "test": "jest --passWithNoTests",
         "build": "tsc"
     },
-    "version": "1.0.7",
+    "version": "1.0.8",
     "webpack": "./src/index.tsx"
 }
