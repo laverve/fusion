@@ -22,7 +22,7 @@ runs:
       shell: bash
 
     - name: Archive GitHub Pages Artifact
-      uses: actions/upload-pages-artifact@v1
+      uses: actions/upload-pages-artifact@v3
       with:
           name: github-artifact
           path: ".ghpages-artifact/storybook"

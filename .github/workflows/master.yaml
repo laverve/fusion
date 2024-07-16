@@ -1,14 +1,34 @@
-name: CI
+name: Release Train
 
 on:
-    pull_request:
+    push:
         branches: ["master"]
+
+permissions:
+    contents: write
+    pages: write
+    id-token: write
 
 env:
     TARGET_ENVIRONMENT: production
+    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
     install:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
+                  cache: "npm"
+            - uses: ./.github/actions/install
+
+    version:
+        needs: [install]
+
         runs-on: ubuntu-latest
 
         steps:
@@ -19,6 +39,9 @@ jobs:
                   node-version-file: .nvmrc
                   cache: "npm"
             - uses: ./.github/actions/install
+            - uses: ./.github/actions/version-bump
+              with:
+                  actor: "github-actions[bot]"
 
     lint:
         runs-on: ubuntu-latest
@@ -51,7 +74,7 @@ jobs:
 
     build:
         runs-on: ubuntu-latest
-        needs: [test, lint]
+        needs: [test, lint, version]
 
         steps:
             - uses: actions/checkout@v4
@@ -62,3 +85,18 @@ jobs:
                   cache: "npm"
             - uses: ./.github/actions/install
             - uses: ./.github/actions/build
+
+    publishGHPages:
+        runs-on: ubuntu-latest
+
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+
+        needs: [build]
+
+        steps:
+            - name: Deploy artifact to GitHub Pages
+              uses: actions/deploy-pages@v4
+              with:
+                  artifact_name: github-artifact

@@ -1,24 +1,8 @@
-name: "Version and publish"
-description: 'Publishes all packages to NPM repository'
-inputs:
-  actor:
-    description: 'actor'
-    required: true
-  npm_token:
-    description: 'NPM Token'
-    required: true
-  github_token:
-    description: 'Github Token'
-    required: true
+name: "Publish"
+description: 'Publishes all packages in a repo'
 runs:
   using: "composite"
-  env:
-    NPM_TOKEN: ${{ inputs.npm_token }}
-    GH_TOKEN: ${{ inputs.github_token }}
   steps:
     - run: |
-        git config user.name "${{ inputs.actor }}"
-        git config user.email "${{ inputs.actor}}@users.noreply.github.com"
-        npx lerna version --conventional-commits --yes
-        npx lerna publish from-git --yes
+        npm publish --workspaces=true
       shell: bash

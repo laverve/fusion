@@ -1,32 +1,21 @@
-name: Publish Packages to npmjs
+name: Production
 on:
   release:
     types: [published]
 
 env:
     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        node-version: [20.x]
-
+  publishNpm:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-            node-version: ${{ matrix.node-version }}
+            node-version-file: .nvmrc
             cache: "npm"
       - uses: ./.github/actions/install
       - uses: ./.github/actions/build
-      - uses: ./.github/actions/lint
-      - uses: ./.github/actions/test
       - uses: ./.github/actions/publish
-        with:
-          actor: ${{ github.actor }}
-          npm_token: ${{secrets.NPM_TOKEN}}
-          github_token: ${{secrets.GITHUB_TOKEN}}
