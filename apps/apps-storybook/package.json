@@ -9,9 +9,9 @@
         "@fortawesome/free-regular-svg-icons": "^6.4.2",
         "@fortawesome/free-solid-svg-icons": "^6.4.2",
         "@fortawesome/react-fontawesome": "^0.2.0",
-        "@laverve/design-provider": "^1.0.5",
-        "@laverve/maze-game": "^1.0.5",
-        "@laverve/word-search-game": "^1.0.5",
+        "@laverve/design-provider": "^1.0.6",
+        "@laverve/maze-game": "^1.0.6",
+        "@laverve/word-search-game": "^1.0.6",
         "@nextui-org/react": "^2.1.13",
         "framer-motion": "^10.16.4",
         "react": "^18.2.0"
@@ -51,5 +51,5 @@
         "lint:staged": "lint-staged",
         "start:dev": "sb dev --port 9000"
     },
-    "version": "1.0.5"
+    "version": "1.0.6"
 }

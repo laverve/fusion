@@ -6,11 +6,11 @@
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.4.2",
         "@fortawesome/react-fontawesome": "^0.2.0",
-        "@laverve/design-provider": "^1.0.5",
-        "@laverve/fusion": "^1.0.5",
-        "@laverve/game-layout": "^1.0.5",
-        "@laverve/i18n-provider": "^1.0.5",
-        "@laverve/timer": "^1.0.5",
+        "@laverve/design-provider": "^1.0.6",
+        "@laverve/fusion": "^1.0.6",
+        "@laverve/game-layout": "^1.0.6",
+        "@laverve/i18n-provider": "^1.0.6",
+        "@laverve/timer": "^1.0.6",
         "classnames": "^2.3.2",
         "react": "^18.2.0",
         "react-i18next": "13.5.0",
@@ -46,6 +46,6 @@
         "test": "jest --passWithNoTests",
         "build": "tsc"
     },
-    "version": "1.0.5",
+    "version": "1.0.6",
     "webpack": "./src/index.tsx"
 }
