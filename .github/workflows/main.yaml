@@ -86,9 +86,6 @@ jobs:
                   node-version-file: .nvmrc
                   cache: "npm"
             - uses: ./.github/actions/install
-            - uses: ./.github/actions/version-bump
-              with:
-                  actor: "github-actions[bot]"
             - uses: ./.github/actions/build-storybook
 
     publishGHPages:
