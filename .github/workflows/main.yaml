@@ -78,12 +78,17 @@ jobs:
 
         steps:
             - uses: actions/checkout@v4
+              with:
+                ref: "main"
             - name: Use Node.js
               uses: actions/setup-node@v4
               with:
                   node-version-file: .nvmrc
                   cache: "npm"
             - uses: ./.github/actions/install
+            - uses: ./.github/actions/version-bump
+              with:
+                  actor: "github-actions[bot]"
             - uses: ./.github/actions/build-storybook
 
     publishGHPages:
