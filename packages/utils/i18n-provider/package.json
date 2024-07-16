@@ -41,6 +41,6 @@
         "test": "jest --passWithNoTests",
         "build": "tsc"
     },
-    "version": "1.0.3",
+    "version": "1.0.4",
     "webpack": "./src/index.tsx"
 }
