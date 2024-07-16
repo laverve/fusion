@@ -11,7 +11,7 @@ runs:
     - run: |
           [ -d .ghpages-artifact ] || mkdir .ghpages-artifact,
       shell: bash
-    - run: NODE_ENV=${{ inputs.NODE_ENV }} npm run build:storybook
+    - run: NODE_ENV=${{ inputs.NODE_ENV }} npm run build
       shell: bash
 
     - name: Grant permissions for a folder containing artifact (needed for upload-pages-artifact action)

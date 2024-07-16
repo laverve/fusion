@@ -51,7 +51,6 @@
     },
     "scripts": {
         "build": "lerna run build",
-        "build:storybook": "lerna run build --scope @laverve/games-storybook",
         "lint": "eslint --ext .js,.ts,.tsx,.json *.js lerna.json package.json tsconfig*.json *.ts && lerna run lint",
         "lint:fix": "eslint --fix && lerna run lint -- --fix",
         "lint:staged": "lint-staged && lerna run lint:staged --since=origin/main --concurrency=1",
