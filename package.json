@@ -47,7 +47,7 @@
     "name": "laverve-monorepo",
     "repository": {
         "type": "git",
-        "url": "git:https://github.com/laverve/games.git"
+        "url": "https://github.com/laverve/games.git"
     },
     "scripts": {
         "build": "lerna run build",

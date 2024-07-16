@@ -5,51 +5,98 @@ on:
         branches: ["main"]
 
 permissions:
-    contents: read
+    contents: write
     pages: write
     id-token: write
 
 env:
     TARGET_ENVIRONMENT: production
     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-    test:
+    install:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
+            - uses: actions/checkout@v4
+            - name: Use Node.js
+              uses: actions/setup-node@v4
               with:
-                  node-version: ${{ matrix.node-version }}
+                  node-version-file: .nvmrc
+                  cache: "npm"
+            - uses: ./.github/actions/install
+
+    version:
+        needs: [install]
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
+                  cache: "npm"
+            - uses: ./.github/actions/install
+            - uses: ./.github/actions/version-bump
+              with:
+                  actor: "github-actions[bot]"
+
+    lint:
+        runs-on: ubuntu-latest
+        needs: [install]
+
+        steps:
+            - uses: actions/checkout@v4
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
+                  cache: "npm"
+            - uses: ./.github/actions/install
+            - uses: ./.github/actions/lint
+
+    test:
+        runs-on: ubuntu-latest
+        needs: [install]
+
+        steps:
+            - uses: actions/checkout@v4
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
                   cache: "npm"
             - uses: ./.github/actions/install
             - uses: ./.github/actions/build
-            - uses: ./.github/actions/lint
             - uses: ./.github/actions/test
-              with:
-                  chunk_index: ${{ matrix.ci_index }}
-                  chunk_total: ${{ matrix.ci_total }}
 
-    publish:
+    build:
         runs-on: ubuntu-latest
+        needs: [test, lint, version]
 
-        permissions:
-            pages: write # to deploy to Pages
-            id-token: write
+        steps:
+            - uses: actions/checkout@v4
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
+                  cache: "npm"
+            - uses: ./.github/actions/install
+            - uses: ./.github/actions/build
 
-        strategy:
-            matrix:
-                node-version: [18.x]
+    publishGHPages:
+        runs-on: ubuntu-latest
 
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
 
-        needs: [test]
+        needs: [build]
 
         steps:
             - name: Deploy artifact to GitHub Pages
-              uses: actions/deploy-pages@v2
+              uses: actions/deploy-pages@v4
               with:
                   artifact_name: github-artifact

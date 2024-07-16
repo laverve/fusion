@@ -22,7 +22,7 @@
     "name": "@laverve/i18n-provider",
     "repository": {
         "type": "git",
-        "url": "git:https://github.com/laverve/games.git"
+        "url": "https://github.com/laverve/games.git"
     },
     "files": [
         "./dist/src/",
@@ -41,6 +41,6 @@
         "test": "jest --passWithNoTests",
         "build": "tsc"
     },
-    "version": "1.0.0",
+    "version": "1.0.1",
     "webpack": "./src/index.tsx"
 }

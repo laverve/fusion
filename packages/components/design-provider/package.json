@@ -36,7 +36,7 @@
     "name": "@laverve/design-provider",
     "repository": {
         "type": "git",
-        "url": "git:https://github.com/laverve/games.git"
+        "url": "https://github.com/laverve/games.git"
     },
     "publishConfig": {
         "access": "restricted"
@@ -58,6 +58,6 @@
         "copy-assets": "copyfiles -u 1 src/**/*.txt src/**/*.ttf src/**/*.otf src/**/*.css dist/src/",
         "build": "tsc && npm run copy-assets"
     },
-    "version": "1.0.0",
+    "version": "1.0.1",
     "webpack": "./src/index.ts"
 }

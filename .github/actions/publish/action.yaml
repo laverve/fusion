@@ -1,0 +1,8 @@
+name: "Publish"
+description: 'Publishes all packages in a repo'
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        npm publish --workspaces=true
+      shell: bash

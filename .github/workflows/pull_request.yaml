@@ -8,22 +8,57 @@ env:
     TARGET_ENVIRONMENT: production
 
 jobs:
-    test:
+    install:
         runs-on: ubuntu-latest
 
-        strategy:
-            fail-fast: false
-            matrix:
-                node-version: [18.x]
+        steps:
+            - uses: actions/checkout@v4
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
+                  cache: "npm"
+            - uses: ./.github/actions/install
+
+    lint:
+        runs-on: ubuntu-latest
+        needs: [install]
 
         steps:
-            - uses: actions/checkout@v3
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
+            - uses: actions/checkout@v4
+            - name: Use Node.js
+              uses: actions/setup-node@v4
               with:
-                  node-version: ${{ matrix.node-version }}
+                  node-version-file: .nvmrc
+                  cache: "npm"
+            - uses: ./.github/actions/install
+            - uses: ./.github/actions/lint
+
+    test:
+        runs-on: ubuntu-latest
+        needs: [install]
+
+        steps:
+            - uses: actions/checkout@v4
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
                   cache: "npm"
             - uses: ./.github/actions/install
             - uses: ./.github/actions/build
-            - uses: ./.github/actions/lint
             - uses: ./.github/actions/test
+
+    build:
+        runs-on: ubuntu-latest
+        needs: [test, lint]
+
+        steps:
+            - uses: actions/checkout@v4
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
+                  cache: "npm"
+            - uses: ./.github/actions/install
+            - uses: ./.github/actions/build

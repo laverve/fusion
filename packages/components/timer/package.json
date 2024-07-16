@@ -10,7 +10,6 @@
         "react": "^18.2.0"
     },
     "description": "This module offers a Timer component used inside different games.",
-    "devDependencies": {},
     "keywords": [
         "components",
         "tailwindcss",
@@ -34,7 +33,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git:https://github.com/laverve/games.git"
+        "url": "https://github.com/laverve/games.git"
     },
     "scripts": {
         "lint": "eslint --ext .js,.ts,.tsx,.json .",
@@ -42,6 +41,6 @@
         "test": "jest --passWithNoTests",
         "build": "tsc"
     },
-    "version": "1.0.0",
+    "version": "1.0.1",
     "webpack": "./src/index.ts"
 }

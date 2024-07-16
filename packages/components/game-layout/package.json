@@ -25,7 +25,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git:https://github.com/laverve/games.git"
+        "url": "https://github.com/laverve/games.git"
     },
     "scripts": {
         "lint": "eslint --ext .js,.ts,.tsx,.json .",
@@ -34,9 +34,9 @@
         "build": "tsc"
     },
     "peerDependencies": {
-        "tailwindcss": "^3.3.3",
-        "react": "^18.2.0"
+        "react": "^18.2.0",
+        "tailwindcss": "^3.3.3"
     },
-    "version": "1.0.0",
+    "version": "1.0.1",
     "webpack": "./src/index.ts"
 }
