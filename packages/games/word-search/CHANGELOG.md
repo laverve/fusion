@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2024-07-17)
+
+-   chore!: bump version ([5000aab](https://github.com/laverve/games/commit/5000aaba0487d91b51c023333dd07637167cc221))
+
+### BREAKING CHANGES
+
+-   creating a new release after cleaning up
+
 ## 1.0.12 (2024-07-17)
 
 **Note:** Version bump only for package @laverve/word-search-game
