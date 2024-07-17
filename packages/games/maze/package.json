@@ -38,7 +38,7 @@
     "name": "@laverve/maze-game",
     "repository": {
         "type": "git",
-        "url": "https://github.com/laverve/games.git"
+        "url": "https://github.com/laverve/fusion.git"
     },
     "scripts": {
         "lint": "eslint --ext .js,.ts,.tsx,.json .",

@@ -39,7 +39,7 @@
         "typescript": "^5.2.2",
         "yargs": "^17.7.2"
     },
-    "homepage": "https://github.com/vpishuk/laverve#readme",
+    "homepage": "https://github.com/laverve/fusion",
     "keywords": [
         "games"
     ],
@@ -48,7 +48,7 @@
     "name": "laverve-monorepo",
     "repository": {
         "type": "git",
-        "url": "https://github.com/laverve/games.git"
+        "url": "https://github.com/laverve/fusion.git"
     },
     "scripts": {
         "build": "lerna run build",

@@ -35,7 +35,7 @@
         "storybook-a11y-report": "^0.0.20",
         "tailwindcss": "^3.3.3"
     },
-    "homepage": "https://github.com/vpishuk/laverve#readme",
+    "homepage": "https://github.com/laverve/fusion",
     "keywords": [
         "storybook"
     ],
@@ -43,7 +43,7 @@
     "private": true,
     "repository": {
         "type": "git",
-        "url": "https://github.com/laverve/games.git"
+        "url": "https://github.com/laverve/fusion.git"
     },
     "scripts": {
         "build": "sb build -o ../../.ghpages-artifact/storybook",

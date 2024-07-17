@@ -75,8 +75,8 @@ export const MyAwesomeStage: React.FC<MazeHeroProps> = () => {
 
 # Demos
 
-* [Maze](https://laverve.github.io/games/?path=/story/games-maze-gameplay--maze-story)
-* [WordSearch](https://laverve.github.io/games/?path=/story/games-wordsearch-gameplay--word-search-story)
+* [Maze](https://laverve.github.io/fusion/?path=/story/games-maze-gameplay--maze-story)
+* [WordSearch](https://laverve.github.io/fusion/?path=/story/games-wordsearch-gameplay--word-search-story)
 
 
 # Contribution guidelines
