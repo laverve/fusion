@@ -41,6 +41,7 @@
     "publishConfig": {
         "access": "restricted"
     },
+    "private": "true",
     "files": [
         "./dist/src/",
         "./src/",

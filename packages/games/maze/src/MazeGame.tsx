@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 
 import { GameContextProvider, GameContextProviderProps, StageContextProvider, StageConfig } from "@laverve/fusion";
-import { GameLayout, GameLayoutProps } from "@laverve/game-layout";
 import { MazeContextValue, MazeContextProvider, MazeContextProviderProps } from "./Maze.context";
 import { MazeBoard, MazeBoardProps } from "./MazeBoard";
 import { MazeHero } from "./MazeHero";
@@ -10,14 +9,15 @@ import { MazePredators } from "./MazePredators";
 import { MazeGameControls } from "./MazeGameControls";
 import { MazeStats } from "./MazeStats";
 import { MazeSidebar } from "./MazeSidebar";
+import { Layout, LayoutProps } from "./Layout";
 
 export type MazeGameProps = {
     events?: MazeContextProviderProps["events"] & GameContextProviderProps["events"];
     timeout?: number;
-    boardConfig?: Partial<Pick<GameLayoutProps["boardConfig"], "width" | "height">> &
+    boardConfig?: Partial<Pick<LayoutProps["boardConfig"], "width" | "height">> &
         Pick<MazeBoardProps, "assets"> &
         Pick<MazeContextProviderProps, "tileSize" | "minPadding">;
-    sidebarConfig?: Pick<GameLayoutProps["sidebarConfig"], "placement" | "layoutVariant">;
+    sidebarConfig?: Pick<LayoutProps["sidebarConfig"], "placement" | "layoutVariant">;
 } & Pick<MazeContextValue, "grid" | "exitPoint" | "resources" | "hero" | "predators">;
 
 export const MazeGame: React.FC<MazeGameProps> = ({
@@ -62,7 +62,7 @@ export const MazeGame: React.FC<MazeGameProps> = ({
                 minPadding={minPadding}
                 boardSize={{ width: boardWidth, height: boardHeight }}
             >
-                <GameLayout
+                <Layout
                     boardConfig={{
                         children: (
                             <>

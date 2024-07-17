@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 
-import { Timer } from "@laverve/timer";
-import { useTimer } from "@laverve/fusion";
+import { Timer, useTimer } from "@laverve/timer";
+import { GameContext, GameStatus } from "@laverve/fusion";
 import { WordSearchWordsList, WordSearchWordsListProps } from "./WordSearchWordsList";
 
 export type WordSearchSidebarProps = {
@@ -9,7 +9,21 @@ export type WordSearchSidebarProps = {
 };
 
 export const WordSearchSidebar: React.FC<WordSearchSidebarProps> = ({ wordsListConfig }) => {
-    const { seconds, timeLeftPercents, minutes } = useTimer();
+    const { status, timeout } = useContext(GameContext);
+
+    const { seconds, timeLeftPercents, minutes } = useTimer({
+        type: timeout === 0 ? "countup" : "countdown",
+        timeout,
+        isCounting: status === GameStatus.IN_PROGRESS
+    });
+
+    console.log({
+        type: timeout === 0 ? "countup" : "countdown",
+        timeout,
+        isCounting: status === GameStatus.IN_PROGRESS
+    });
+
+    console.log(timeLeftPercents);
 
     return (
         <>

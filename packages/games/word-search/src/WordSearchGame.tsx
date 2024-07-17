@@ -1,7 +1,6 @@
 import React from "react";
 
 import { GameContextProvider, GameContextProviderProps } from "@laverve/fusion";
-import { GameLayout, GameLayoutProps } from "@laverve/game-layout";
 import {
     WordSearchContextValue,
     WordSearchContextProvider,
@@ -12,12 +11,13 @@ import { WordSearchGameControls } from "./WordSearchGameControls";
 import { WordSearchStats } from "./WordSearchStats";
 import { WordSearchWordsListProps } from "./WordSearchWordsList";
 import { WordSearchSidebar } from "./WordSearchSidebar";
+import { Layout, LayoutProps } from "./Layout";
 
 export type WordSearchGameProps = {
     events?: WordSearchContextProviderProps["events"] & GameContextProviderProps["events"];
     timeout?: number;
-    boardConfig?: Pick<GameLayoutProps["boardConfig"], "width" | "height">;
-    sidebarConfig?: Pick<GameLayoutProps["sidebarConfig"], "placement" | "layoutVariant">;
+    boardConfig?: Pick<LayoutProps["boardConfig"], "width" | "height">;
+    sidebarConfig?: Pick<LayoutProps["sidebarConfig"], "placement" | "layoutVariant">;
     wordsListConfig?: Pick<WordSearchWordsListProps, "classNames">;
 } & Required<Pick<WordSearchContextValue, "grid" | "words">> &
     Partial<Pick<WordSearchContextValue, "selectedWordsColors">>;
@@ -48,7 +48,7 @@ export const WordSearchGame: React.FC<WordSearchGameProps> = ({
                 selectedWordsColors={selectedWordsColors}
                 events={{ onWordFound: events?.onWordFound }}
             >
-                <GameLayout
+                <Layout
                     boardConfig={{
                         children: (
                             <>

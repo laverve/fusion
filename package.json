@@ -8,6 +8,7 @@
     },
     "description": "This is a monorepo for all the products/components laverve is offering",
     "devDependencies": {
+        "@laverve/test-utils": "^2.0.1",
         "@types/react": "^18.2.21",
         "@types/uuid": "^9.0.4",
         "@typescript-eslint/eslint-plugin": "^6.7.0",

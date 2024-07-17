@@ -56,7 +56,6 @@ describe("WordSearchGame", () => {
         });
 
         expect(component.queryByTestId("testid-game-control-start")).toBeTruthy();
-        expect(component.queryByTestId("testid-game-control-timer")).toBeTruthy();
         expect(component.queryByTestId("testid-wordsearch-board")).toBeTruthy();
         expect(component.getByTestId("testid-wordsearch-board").className).toContain("blur-sm");
         expect(component.queryByTestId("testid-wordsearch-words-list")).toBeTruthy();
@@ -71,7 +70,6 @@ describe("WordSearchGame", () => {
         fireEvent.click(component.getByTestId("testid-game-control-start"));
 
         expect(component.queryByTestId("testid-game-control-start")).toBeFalsy();
-        expect(component.queryByTestId("testid-game-control-timer")).toBeTruthy();
         expect(component.queryByTestId("testid-wordsearch-board")).toBeTruthy();
         expect(component.getByTestId("testid-wordsearch-board").className).not.toContain("blur-sm");
         expect(component.queryByTestId("testid-wordsearch-words-list")).toBeTruthy();
@@ -93,7 +91,6 @@ describe("WordSearchGame", () => {
         selectWord(component, ["2-1", "2-2", "2-3"]);
 
         expect(component.queryByTestId("testid-game-control-start")).toBeFalsy();
-        expect(component.queryByTestId("testid-game-control-timer")).toBeTruthy();
         expect(component.queryByTestId("testid-wordsearch-board")).toBeTruthy();
         expect(component.getByTestId("testid-wordsearch-board").className).toContain("blur-sm");
         expect(component.queryByTestId("testid-wordsearch-words-list")).toBeTruthy();

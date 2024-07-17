@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 
-import { useTimer } from "@laverve/fusion";
-import { Timer } from "@laverve/timer";
+import { GameContext, GameStatus } from "@laverve/fusion";
+import { Timer, useTimer } from "@laverve/timer";
 
 export const MazeSidebar: React.FC = () => {
-    const { seconds, timeLeftPercents, minutes } = useTimer();
+    const { status, timeout } = useContext(GameContext);
+
+    const { seconds, timeLeftPercents, minutes } = useTimer({
+        type: timeout === 0 ? "countup" : "countdown",
+        timeout,
+        isCounting: status === GameStatus.IN_PROGRESS
+    });
 
     return <Timer seconds={seconds} minutes={minutes} timeLeftPercents={timeLeftPercents} />;
 };

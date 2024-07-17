@@ -10,6 +10,6 @@ runs:
     - run: |
         git config user.name "${{ inputs.actor }}"
         git config user.email "${{ inputs.actor}}@users.noreply.github.com"
-        npx lerna version --no-commit-hooks --conventional-commits --yes --loglevel silly
+        npx lerna version --yes --loglevel silly
         git status
       shell: bash

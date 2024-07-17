@@ -5,7 +5,7 @@ import classnames from "classnames";
 export type LayoutVariant = "vertical" | "horizontal";
 export type ElementPlacement = "top" | "bottom" | "right" | "left";
 
-export type GameLayoutProps = {
+export type LayoutProps = {
     sidebarConfig: {
         layoutVariant?: LayoutVariant;
         children?: React.ReactNode;
@@ -23,7 +23,7 @@ export type GameLayoutProps = {
     };
 };
 
-export const GameLayout = ({
+export const Layout = ({
     boardConfig: { children: boardSlot = null, width = 300, height = 300, className: boardClassName = "" } = {},
     sidebarConfig: {
         className: sidebarClassName = "",
@@ -32,7 +32,7 @@ export const GameLayout = ({
         layoutVariant: sidebarLayoutVariant = "horizontal"
     } = {},
     containerConfig = { className: "" }
-}: GameLayoutProps) => {
+}: LayoutProps) => {
     return (
         <div
             className={classnames(

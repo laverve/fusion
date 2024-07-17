@@ -6,6 +6,7 @@ on:
 
 env:
     TARGET_ENVIRONMENT: production
+    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
     install:
