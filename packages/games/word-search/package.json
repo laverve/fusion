@@ -6,8 +6,8 @@
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.4.2",
         "@fortawesome/react-fontawesome": "^0.2.0",
-        "@laverve/design-provider": "^2.0.0",
-        "@laverve/fusion": "^2.0.0",
+        "@laverve/design-provider": "^2.0.1",
+        "@laverve/fusion": "^2.0.1",
         "@laverve/i18n-provider": "^2.0.1",
         "@laverve/timer": "^2.0.6",
         "@nextui-org/react": "^2.1.13",
@@ -48,6 +48,6 @@
         "test": "jest --passWithNoTests",
         "build": "tsc"
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "webpack": "./src/index.tsx"
 }
