@@ -18,16 +18,7 @@
     "exclude": ["**/*.test.ts", "**/*.stub.ts", "node_modules", "dist"],
     "references": [
         {
-            "path": "./packages/utils/test"
-        },
-        {
-            "path": "./packages/utils/i18n-provider"
-        },
-        {
-            "path": "./packages/components/timer"
-        },
-        {
-            "path": "./packages/components/game-engine"
+            "path": "./packages/components/fusion"
         },
         {
             "path": "./packages/components/design-provider"
