@@ -13,7 +13,7 @@
         "@laverve/maze-game": "^2.0.2",
         "@laverve/word-search-game": "^2.0.2",
         "@nextui-org/react": "^2.1.13",
-        "framer-motion": "^10.16.4",
+        "framer-motion": "^11.3.7",
         "react": "^18.2.0"
     },
     "description": "Component documentation via Storybook",
@@ -30,9 +30,9 @@
         "@storybook/react-webpack5": "^7.4.1",
         "@storybook/theming": "^7.4.1",
         "postcss": "^8.4.30",
-        "postcss-loader": "^7.3.3",
+        "postcss-loader": "^8.1.1",
         "postcss-preset-env": "^9.1.4",
-        "storybook-a11y-report": "^0.0.20",
+        "storybook-a11y-report": "^0.0.21",
         "tailwindcss": "^3.3.3"
     },
     "homepage": "https://github.com/laverve/fusion",
