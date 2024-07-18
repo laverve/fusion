@@ -13,7 +13,7 @@
         "@laverve/maze-game": "^2.0.3",
         "@laverve/word-search-game": "^2.0.3",
         "@nextui-org/react": "^2.1.13",
-        "framer-motion": "^10.16.4",
+        "framer-motion": "^11.3.7",
         "react": "^18.2.0"
     },
     "description": "Component documentation via Storybook",
