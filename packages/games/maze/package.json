@@ -7,8 +7,8 @@
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.4.2",
         "@fortawesome/react-fontawesome": "^0.2.0",
-        "@laverve/design-provider": "^2.0.9",
-        "@laverve/fusion": "^2.0.9",
+        "@laverve/design-provider": "^2.0.10",
+        "@laverve/fusion": "^2.0.10",
         "@laverve/i18n-provider": "^3.0.1",
         "@laverve/timer": "^2.0.6",
         "classnames": "^2.3.2",
@@ -46,6 +46,6 @@
         "test": "jest --passWithNoTests",
         "build": "tsc"
     },
-    "version": "2.0.9",
+    "version": "2.0.10",
     "webpack": "./src/index.tsx"
 }
