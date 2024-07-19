@@ -9,8 +9,8 @@
     },
     "description": "This is a monorepo for all the products/components laverve is offering",
     "devDependencies": {
-        "@laverve/eslint-utils": "^2.0.7",
-        "@laverve/test-utils": "^2.0.1",
+        "@laverve/eslint-utils": "^3.0.1",
+        "@laverve/test-utils": "^3.0.1",
         "@types/react": "^18.2.21",
         "@types/uuid": "^9.0.4",
         "browserslist": "^4.22.1",
@@ -38,7 +38,7 @@
     },
     "scripts": {
         "build": "lerna run build",
-        "lint": "eslint lerna.json package.json tsconfig*.json *.ts && lerna run lint",
+        "lint": "eslint lerna.json package.json tsconfig*.json *.js && lerna run lint",
         "lint:fix": "eslint --fix && lerna run lint -- --fix",
         "lint:staged": "lint-staged && lerna run lint:staged --since=origin/main --concurrency=1",
         "prepare": "husky install",
