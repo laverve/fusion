@@ -37,7 +37,6 @@
         "url": "https://github.com/laverve/fusion.git"
     },
     "scripts": {
-        "postinstall": "npm run build",
         "build": "lerna run build",
         "lint": "eslint lerna.json package.json tsconfig*.json *.ts && lerna run lint",
         "lint:fix": "eslint --fix && lerna run lint -- --fix",
