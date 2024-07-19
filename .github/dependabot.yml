@@ -13,13 +13,6 @@ updates:
         applies-to: version-updates
         patterns:
           - "@laverve*"
-      storybook:
-        applies-to: version-updates
-        patterns:
-          - "@storybook*"
-        update-types:
-          - "minor"
-          - "patch"
       react:
         applies-to: version-updates
         patterns:
@@ -33,3 +26,6 @@ updates:
           - "*matter-js"
           - "pixi.js"
           - "@pixi/*"
+    ignore:
+      - dependency-name: "@storybook/*"
+      - dependency-name: "storybook"
