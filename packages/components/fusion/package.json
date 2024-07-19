@@ -5,9 +5,15 @@
         "url": "https://github.com/laverve/fusion/issues"
     },
     "dependencies": {
-        "@types/matter-js": "^0.19.2",
-        "matter-js": "^0.19.0",
-        "pixi.js": "^7.3.2"
+        "@pixi/app": "^7.4.2",
+        "@pixi/core": "^7.4.2",
+        "@pixi/display": "^7.4.2",
+        "@pixi/events": "^7.4.2",
+        "@pixi/graphics": "^7.4.2",
+        "@pixi/sprite": "^7.4.2",
+        "@types/matter-js": "^0.19.7",
+        "matter-js": "^0.20.0",
+        "pixi.js": "^8.2.5"
     },
     "peerDependencies": {
         "react": "^18.2.0"

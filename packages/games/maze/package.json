@@ -13,8 +13,7 @@
         "@laverve/timer": "^2.0.6",
         "classnames": "^2.3.2",
         "react": "^18.2.0",
-        "react-i18next": "13.5.0",
-        "uuid": "^9.0.1"
+        "react-i18next": "15.0.0"
     },
     "description": "This module offers a set of components needed to configure and play Maze game.",
     "keywords": [

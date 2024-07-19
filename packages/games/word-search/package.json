@@ -4,6 +4,9 @@
     "bugs": {
         "url": "https://github.com/laverve/fusion/issues"
     },
+    "devDependencies": {
+        "@types/uuid": "^10.0.0"
+    },
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.4.2",
         "@fortawesome/react-fontawesome": "^0.2.0",
@@ -11,12 +14,12 @@
         "@laverve/fusion": "^2.0.8",
         "@laverve/i18n-provider": "^3.0.1",
         "@laverve/timer": "^2.0.6",
-        "@nextui-org/react": "^2.1.13",
+        "@nextui-org/react": "^2.4.6",
         "classnames": "^2.3.2",
         "color2k": "^2.0.2",
         "react": "^18.2.0",
-        "react-i18next": "13.5.0",
-        "uuid": "^9.0.1"
+        "react-i18next": "15.0.0",
+        "uuid": "^10.0.0"
     },
     "description": "This module offers a set of components needed to configure and play WordSearch game.",
     "keywords": [

@@ -5,6 +5,10 @@ updates:
     schedule:
       interval: 'weekly'
     groups:
+      uncategorized:
+        applies-to: version-updates
+        patterns:
+          - "*"
       laverve:
         applies-to: version-updates
         patterns:
@@ -13,6 +17,9 @@ updates:
         applies-to: version-updates
         patterns:
           - "@storybook*"
+        update-types:
+          - "minor"
+          - "patch"
       react:
         applies-to: version-updates
         patterns:
@@ -26,7 +33,3 @@ updates:
           - "*matter-js"
           - "pixi.js"
           - "@pixi/"
-      uncategorized:
-        applies-to: version-updates
-        patterns:
-          - "*"
