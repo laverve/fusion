@@ -32,4 +32,4 @@ updates:
           - "matter-js"
           - "*matter-js"
           - "pixi.js"
-          - "@pixi/"
+          - "@pixi/*"
