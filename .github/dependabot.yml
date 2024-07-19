@@ -19,6 +19,13 @@ updates:
           - "react*"
           - "*react"
           - "*react*"
+      fusion:
+        applies-to: version-updates
+        patterns:
+          - "matter-js"
+          - "*matter-js"
+          - "pixi.js"
+          - "@pixi/"
       uncategorized:
         applies-to: version-updates
         patterns:
