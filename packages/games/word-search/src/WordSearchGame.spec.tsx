@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 
-/* eslint-disable react/jsx-props-no-spreading */
 import { describe, it, expect } from "@jest/globals";
 import React from "react";
 

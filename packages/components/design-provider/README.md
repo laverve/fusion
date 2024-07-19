@@ -20,18 +20,18 @@ npm i --save @laverve/design-provider
 
 2. Add `postcss.config.js` file in your root folder
 ```
-// eslint-disable-next-line import/extensions
+
 const postCSSConfig = require("@laverve/design-provider/postcss.config.js");
 
-module.exports = postCSSConfig;
+export default postCSSConfig;
 ```
 
 3. Add `tailwind.config.js` file in your root folder
 ```
-// eslint-disable-next-line import/extensions
+
 const tailwindConfig = require("@laverve/design-provider/tailwind.config.js");
 
-module.exports = tailwindConfig;
+export default tailwindConfig;
 ```
 
 4. Configure your build tool so it supports postcss

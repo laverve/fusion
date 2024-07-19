@@ -10,7 +10,7 @@ export const useStageEventHandler = <K extends keyof AllFederatedEventMap>({
 }: {
     isEnabled?: boolean;
     event: K;
-    callback: (e: AllFederatedEventMap[K]) => any;
+    callback: (e: AllFederatedEventMap[K]) => unknown;
 }) => {
     const { application } = useContext(StageContext);
     useEffect(() => {

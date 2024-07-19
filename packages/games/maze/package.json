@@ -1,5 +1,6 @@
 {
     "author": "Victor Pishuk <victor.pishuk@gmail.com>",
+    "type": "module",
     "bugs": {
         "url": "https://github.com/laverve/fusion/issues"
     },
@@ -41,7 +42,7 @@
         "url": "https://github.com/laverve/fusion.git"
     },
     "scripts": {
-        "lint": "eslint --ext .js,.ts,.tsx,.json .",
+        "lint": "eslint .",
         "lint:staged": "lint-staged",
         "test": "jest --passWithNoTests",
         "build": "tsc"

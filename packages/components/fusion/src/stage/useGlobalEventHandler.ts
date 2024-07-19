@@ -7,7 +7,7 @@ export const useGlobalEventHandler = <K extends keyof DocumentEventMap>({
 }: {
     isEnabled?: boolean;
     event: K;
-    callback: (e: DocumentEventMap[K]) => any;
+    callback: (e: DocumentEventMap[K]) => unknown;
 }) => {
     useEffect(() => {
         if (!isEnabled) {

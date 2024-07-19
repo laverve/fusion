@@ -1,7 +1,6 @@
-const path = require("path");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
-module.exports = {
+export default {
     stories: ["../stories/**/*.@(story|stories).@(js|jsx|ts|tsx|mdx)"],
     addons: ["@storybook/addon-links", "@storybook/addon-essentials", "@storybook/addon-a11y"],
     staticDirs: ["../static"],
@@ -10,10 +9,10 @@ module.exports = {
         config.presets.push(["@babel/preset-typescript", { isTSX: true, allExtensions: true }]);
         return config;
     },
-    async webpackFinal(config, { configType }) {
+    async webpackFinal(config) {
         config.resolve.plugins = [new TsconfigPathsPlugin()];
-        const cssRule = config.module.rules.find(r => r.test.test('styles.css'))
-        cssRule.use.push('postcss-loader');
+        const cssRule = config.module.rules.find((r) => r.test.test("styles.css"));
+        cssRule.use.push("postcss-loader");
         return config;
     }
 };

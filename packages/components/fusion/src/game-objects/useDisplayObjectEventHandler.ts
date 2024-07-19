@@ -11,7 +11,7 @@ export const useDisplayObjectEventHandler = <K extends keyof AllFederatedEventMa
     isEnabled?: boolean;
     displayObject: DisplayObject | null;
     event: K;
-    callback: (e: AllFederatedEventMap[K]) => any;
+    callback: (e: AllFederatedEventMap[K]) => unknown;
 }) => {
     useEffect(() => {
         if (!isEnabled || !displayObject) {

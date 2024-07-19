@@ -79,7 +79,7 @@ const COLOR_PALETTE = {
     }
 };
 
-module.exports = {
+export default {
     content: [`${nextUIThemeModulePath}/**/*.{js,ts,jsx,tsx}`],
     safelist: [
         {

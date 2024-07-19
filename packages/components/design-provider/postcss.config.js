@@ -2,7 +2,7 @@ const tailwindcss = require("tailwindcss");
 const postcssFlexbugsFixesPlugin = require("postcss-flexbugs-fixes");
 const postcssPresetEnv = require("postcss-preset-env");
 
-module.exports = {
+export default {
     plugins: [
         postcssPresetEnv({
             features: {

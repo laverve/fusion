@@ -8,9 +8,7 @@ import {
 } from "@laverve/fusion";
 import { MazeContext } from "./Maze.context";
 
-export type MazeHeroProps = {};
-
-export const MazeHero: React.FC<MazeHeroProps> = () => {
+export const MazeHero: React.FC = () => {
     const { tileSize, padding, tileAspectRatio, grid, move, hero } = useContext(MazeContext);
     const { status } = useContext(GameContext);
     const heroDisplayObjectConfig = useMemo(

@@ -1,5 +1,6 @@
 {
     "author": "Victor Pishuk <victor.pishuk@gmail.com>",
+    "type": "module",
     "bugs": {
         "url": "https://github.com/laverve/fusion/issues"
     },
@@ -47,7 +48,7 @@
     },
     "scripts": {
         "build": "sb build -o ../../.ghpages-artifact/storybook",
-        "lint": "eslint --ext .js,.ts,.tsx,.json .",
+        "lint": "eslint .",
         "lint:staged": "lint-staged",
         "start:dev": "sb dev --port 9000"
     },
