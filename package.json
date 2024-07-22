@@ -9,8 +9,8 @@
     },
     "description": "This is a monorepo for all the products/components laverve is offering",
     "devDependencies": {
-        "@laverve/eslint-utils": "^3.0.1",
-        "@laverve/test-utils": "^3.0.1",
+        "@laverve/eslint-utils": "^5.0.0",
+        "@laverve/test-utils": "^5.0.0",
         "@types/react": "^18.2.21",
         "browserslist": "^4.22.1",
         "copyfiles": "^2.4.1",
