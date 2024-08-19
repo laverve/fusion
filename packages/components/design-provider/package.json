@@ -60,6 +60,6 @@
         "copy-assets": "copyfiles -u 1 src/**/*.txt src/**/*.ttf src/**/*.otf src/**/*.css dist/src/",
         "build": "tsc && npm run copy-assets"
     },
-    "version": "2.0.12",
+    "version": "2.0.13",
     "webpack": "./src/index.ts"
 }

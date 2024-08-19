@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.13 (2024-08-19)
+
+**Note:** Version bump only for package @laverve/maze-game
+
 ## 2.0.12 (2024-07-24)
 
 **Note:** Version bump only for package @laverve/maze-game
