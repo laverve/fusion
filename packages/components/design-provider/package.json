@@ -58,7 +58,7 @@
         "lint:staged": "lint-staged",
         "test": "jest --passWithNoTests",
         "copy-assets": "copyfiles -u 1 src/**/*.txt src/**/*.ttf src/**/*.otf src/**/*.css dist/src/",
-        "build": "tsc && npm run copy-assets"
+        "build": "rimraf ./dist && tsc && npm run copy-assets"
     },
     "version": "2.0.15",
     "webpack": "./src/index.ts"
