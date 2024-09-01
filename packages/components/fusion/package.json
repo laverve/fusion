@@ -51,6 +51,6 @@
         "test": "jest --passWithNoTests",
         "build": "rimraf ./dist && tsc"
     },
-    "version": "2.0.15",
+    "version": "2.0.16",
     "webpack": "./src/index.ts"
 }
