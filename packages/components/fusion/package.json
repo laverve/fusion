@@ -49,7 +49,7 @@
         "lint": "eslint .",
         "lint:staged": "lint-staged",
         "test": "jest --passWithNoTests",
-        "build": "tsc"
+        "build": "rimraf ./dist && tsc"
     },
     "version": "2.0.15",
     "webpack": "./src/index.ts"
