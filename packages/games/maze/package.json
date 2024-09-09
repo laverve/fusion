@@ -10,7 +10,7 @@
         "@laverve/design-provider": "^2.0.16",
         "@laverve/fusion": "^2.0.16",
         "@laverve/i18n-provider": "^5.0.0",
-        "@laverve/timer": "^2.0.6",
+        "@laverve/timer": "^3.1.1",
         "classnames": "^2.3.2",
         "react": "^18.2.0",
         "react-i18next": "15.0.1"
