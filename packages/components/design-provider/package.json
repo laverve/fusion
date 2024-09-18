@@ -60,6 +60,6 @@
         "copy-assets": "copyfiles -u 1 src/**/*.txt src/**/*.ttf src/**/*.otf src/**/*.css dist/src/",
         "build": "rimraf ./dist && tsc && npm run copy-assets"
     },
-    "version": "2.0.16",
+    "version": "2.0.17",
     "webpack": "./src/index.ts"
 }

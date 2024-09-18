@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.17 (2024-09-18)
+
+**Note:** Version bump only for package @laverve/word-search-game
+
 ## 2.0.16 (2024-09-01)
 
 **Note:** Version bump only for package @laverve/word-search-game
