@@ -1,8 +1,12 @@
 name: "Publish"
 description: 'Publishes all packages in a repo'
+inputs:
+  package:
+    description: 'Package that has to be published'
+    required: true
 runs:
   using: "composite"
   steps:
     - run: |
-        npm publish --workspaces=true
+        npm publish --workspace=${{ inputs.package }}
       shell: bash

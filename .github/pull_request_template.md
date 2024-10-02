@@ -4,14 +4,6 @@ Please include a summary of the changes and the related issue. Please also inclu
 
 Fixes # (issue)
 
-## Type of change
-
-Please add a type of the change itno PR's name:
-
--   [ ] `(patch)` or ` ` - bug fix (non-breaking change which fixes an issue)
--   [ ] `(minor)` - New feature (non-breaking change which adds functionality)
--   [ ] `(major)` - Breaking change (fix or feature that would cause existing functionality to not work as expected)
-
 # How Has This Been Tested?
 
 Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
