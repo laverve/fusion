@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.0 (2024-10-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* creating a new release after cleaning up
+
+### Features
+
+* **pixi.js:** migrates to the lates version + restructuring repo ([b63d3be](https://github.com/laverve/fusion/commit/b63d3bee1a53ee7933b67b8e0574701b051b9186))
+
+
+### Miscellaneous Chores
+
+* bump version ([5000aab](https://github.com/laverve/fusion/commit/5000aaba0487d91b51c023333dd07637167cc221))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @laverve/fusion bumped from ^2.0.18 to ^3.0.0
+
 ## 2.0.18 (2024-09-28)
 
 **Note:** Version bump only for package @laverve/word-search-game
