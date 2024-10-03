@@ -1,0 +1,50 @@
+{
+    "author": "Victor Pishuk <victor.pishuk@gmail.com>",
+    "type": "module",
+    "bugs": {
+        "url": "https://github.com/laverve/fusion/issues"
+    },
+    "dependencies": {
+        "@types/matter-js": "^0.19.7",
+        "matter-js": "^0.20.0",
+        "pixi.js": "^8.4.1"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0"
+    },
+    "description": "This module offers a set of common components needed for playing games.",
+    "keywords": [
+        "game",
+        "engine",
+        "pixi.js",
+        "matter-js",
+        "react"
+    ],
+    "license": "MIT",
+    "main": "./dist/src/index.js",
+    "types": "./dist/src/index.d.ts",
+    "name": "@laverve/fusion",
+    "files": [
+        "./dist/src/",
+        "./src/",
+        "package.json",
+        "package-lock.json",
+        "README.md",
+        "LICENSE"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/laverve/fusion.git"
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "lint:staged": "lint-staged",
+        "test": "jest --passWithNoTests",
+        "build": "rimraf ./dist && tsc"
+    },
+    "version": "2.0.18",
+    "webpack": "./src/index.ts"
+}

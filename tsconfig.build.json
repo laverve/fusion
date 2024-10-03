@@ -19,16 +19,13 @@
     "exclude": ["**/*.test.ts", "**/*.stub.ts", "node_modules", "dist"],
     "references": [
         {
-            "path": "./packages/components/fusion"
+            "path": "./fusion"
         },
         {
-            "path": "./packages/components/design-provider"
+            "path": "./games/maze"
         },
         {
-            "path": "./packages/games/maze"
-        },
-        {
-            "path": "./packages/games/wordsearch"
+            "path": "./games/wordsearch"
         }
     ]
 }

@@ -37,20 +37,20 @@
         "url": "https://github.com/laverve/fusion.git"
     },
     "scripts": {
-        "build": "lerna run build",
-        "lint": "eslint lerna.json package.json tsconfig*.json *.js && lerna run lint",
-        "lint:fix": "eslint --fix && lerna run lint -- --fix",
-        "lint:staged": "lint-staged && lerna run lint:staged --since=origin/main --concurrency=1",
+        "build": "npm run build --workspaces",
+        "lint": "eslint package.json tsconfig*.json *.js && npm run lint --workspaces",
+        "lint:fix": "eslint --fix && npm run lint --workspaces -- --fix",
+        "lint:staged": "lint-staged && npm run lint:staged --workspaces",
         "prepare": "husky install",
-        "publish": "lerna publish --no-private",
-        "storybook": "lerna run --scope @laverve/games-storybook start:dev --stream",
-        "test": "lerna run test",
-        "test:staged": "lerna run test --since=origin/main"
+        "publish": "npm publish --workspaces --no-private",
+        "storybook": "npm run start:dev --workspace storybook",
+        "test": "npm run test --workspaces",
+        "test:staged": "npm run test --workspaces"
     },
     "version": "1.0.0",
     "workspaces": [
-        "packages/components/*",
-        "packages/games/*",
-        "apps/*"
+        "fusion/",
+        "games/*",
+        "storybook/"
     ]
 }

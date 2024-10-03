@@ -6,10 +6,13 @@
     "eslint.workingDirectories": [
         ".",
         {
-            "pattern": "./packages/*/*/"
+            "pattern": "./fusion/"
         },
         {
-            "pattern": "./apps/*/"
+            "pattern": "./storybook/"
+        },
+        {
+            "pattern": "./gamse/*/"
         }
     ],
     "jest.jestCommandLine": ""
