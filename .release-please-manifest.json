@@ -1,7 +1,7 @@
 {
-    ".": "2.0.0",
+    ".": "3.0.0",
     "fusion": "3.0.0",
-    "games/maze": "1.0.0",
-    "storybook": "1.0.0",
-    "games/word-search": "1.0.0"
+    "games/maze": "3.0.0",
+    "storybook": "3.0.0",
+    "games/word-search": "3.0.0"
 }
