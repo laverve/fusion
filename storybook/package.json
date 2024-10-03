@@ -46,7 +46,7 @@
         "url": "https://github.com/laverve/fusion.git"
     },
     "scripts": {
-        "build": "sb build -o ../../.ghpages-artifact/storybook",
+        "build": "sb build -o ../.ghpages-artifact/storybook",
         "lint": "eslint .",
         "test": "echo 'Done'",
         "lint:staged": "lint-staged",
