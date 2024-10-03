@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.0](https://github.com/laverve/fusion/compare/laverve-monorepo-v2.0.0...laverve-monorepo-v3.0.0) (2024-10-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* creating a new release after cleaning up
+
+### Features
+
+* **pixi.js:** migrates to the lates version + restructuring repo ([b63d3be](https://github.com/laverve/fusion/commit/b63d3bee1a53ee7933b67b8e0574701b051b9186))
+
+
+### Bug Fixes
+
+* fixes references to git repo ([c5502e3](https://github.com/laverve/fusion/commit/c5502e39d80f40db83e3d9a49b1bfb1ba1984fc1))
+* release please config ([afc59bf](https://github.com/laverve/fusion/commit/afc59bf047fd877d4b46f8e36aba6d5ee8c45616))
+
+
+### Miscellaneous Chores
+
+* bump version ([5000aab](https://github.com/laverve/fusion/commit/5000aaba0487d91b51c023333dd07637167cc221))
+* release 3.0.0 ([bcb0164](https://github.com/laverve/fusion/commit/bcb0164e2024fab9bca5f217dc54ecea8f6ca4e5))
+
 ## [2.0.0](https://github.com/laverve/fusion/compare/laverve-monorepo-v1.0.0...laverve-monorepo-v2.0.0) (2024-10-03)
 
 
