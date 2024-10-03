@@ -38,7 +38,7 @@ jobs:
         concurrency: Draft-Release
 
         outputs:
-            release_created: ${{ steps.release.outputs['fusion'] }}
+            release_created: ${{ steps.release.outputs['fusion--release_created'] }}
 
         steps:
             - uses: actions/checkout@v4
