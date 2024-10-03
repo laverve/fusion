@@ -5,5 +5,3 @@ runs:
   steps:
     - run: npm ci
       shell: bash
-    - run: npm i @nx/nx-linux-x64-gnu@16.8.1 --no-save
-      shell: bash
