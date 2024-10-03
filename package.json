@@ -47,7 +47,7 @@
         "test": "npm run test --workspaces",
         "test:staged": "npm run test --workspaces"
     },
-    "version": "1.0.0",
+    "version": "2.0.0",
     "workspaces": [
         "fusion/",
         "games/*",
