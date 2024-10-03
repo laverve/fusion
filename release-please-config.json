@@ -4,30 +4,32 @@
         ".": {
             "changelog-path": "CHANGELOG.md",
             "release-type": "node",
+            "skip-github-pull-request": true,
             "skip-github-release": true,
             "skip-snapshot": true
         },
         "fusion": {
             "changelog-path": "CHANGELOG.md",
-            "release-type": "node",
-            "skip-github-release": true,
-            "skip-snapshot": true
+            "release-type": "node"
         },
         "games/maze": {
             "changelog-path": "CHANGELOG.md",
             "release-type": "node",
+            "skip-github-pull-request": true,
             "skip-github-release": true,
             "skip-snapshot": true
         },
         "games/word-search": {
             "changelog-path": "CHANGELOG.md",
             "release-type": "node",
+            "skip-github-pull-request": true,
             "skip-github-release": true,
             "skip-snapshot": true
         },
         "storybook": {
             "changelog-path": "CHANGELOG.md",
             "release-type": "node",
+            "skip-github-pull-request": true,
             "skip-github-release": true,
             "skip-snapshot": true
         }
