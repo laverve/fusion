@@ -42,7 +42,7 @@ jobs:
         concurrency: Draft-Release
 
         outputs:
-            fusion_release_created: ${{ steps.release.outputs['games/fusion--release_created'] }}
+            fusion_release_created: ${{ steps.release.outputs['fusion--release_created'] }}
             maze_release_created: ${{ steps.release.outputs['games/maze--release_created'] }}
             wordsearch_release_created: ${{ steps.release.outputs['games/word-search--release_created'] }}
             spelling_spree_release_created: ${{ steps.release.outputs['games/spelling-spree--release_created'] }}
