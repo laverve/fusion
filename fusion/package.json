@@ -47,6 +47,6 @@
         "build": "tsc",
         "build:dev": "tsc -w"
     },
-    "version": "0.0.10",
+    "version": "1.0.0",
     "webpack": "./src/index.ts"
 }
