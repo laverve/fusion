@@ -1,5 +1,3 @@
-import "./i18n";
-
 export * from "./WordSearchBoard";
 export * from "./WordSearchWordsList";
 export * from "./WordSearchStats";

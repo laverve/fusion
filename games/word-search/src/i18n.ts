@@ -1,10 +1,21 @@
-import { addTranslations } from "@laverve/i18n-provider";
-import { I18N_NAMESPACE } from "./types";
+import i18next from "i18next";
 
-import enUS from "./locales/en-US.json";
-import ruRU from "./locales/ru-RU.json";
-import ukUA from "./locales/uk-UA.json";
+import enUS from "./locales/en.json";
+import ruRU from "./locales/ru.json";
+import ukUA from "./locales/uk.json";
 
-addTranslations("en", I18N_NAMESPACE, enUS);
-addTranslations("uk", I18N_NAMESPACE, ukUA);
-addTranslations("ru", I18N_NAMESPACE, ruRU);
+export const i18n = i18next.createInstance();
+
+i18n.init({
+    partialBundledLanguages: true,
+    supportedLngs: ["en", "ru", "uk"],
+    fallbackLng: "en",
+    lng: "en",
+    fallbackNS: "default",
+    defaultNS: "default",
+    ns: "default"
+});
+
+i18n.addResourceBundle("en", "default", enUS);
+i18n.addResourceBundle("ru", "default", ruRU);
+i18n.addResourceBundle("uk", "default", ukUA);

@@ -6,18 +6,19 @@ import { faPlay, faArrowRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import classnames from "classnames";
 
 import { useGame, GameStatus } from "@laverve/fusion";
-import { I18N_NAMESPACE } from "./types";
 
 export type WordSearchGameControlsProps = {
     classNames?: string;
     statsSlot?: React.ReactNode;
+    onPlayAgain?: () => unknown;
 };
 
 export const WordSearchGameControls: React.FC<WordSearchGameControlsProps> = ({
     statsSlot,
-    classNames
+    classNames,
+    onPlayAgain
 }: WordSearchGameControlsProps) => {
-    const { t } = useTranslation(I18N_NAMESPACE);
+    const { t } = useTranslation();
     const { start, status } = useGame();
 
     const wrap = (children: React.ReactNode, isGameOver: boolean = false) => {
@@ -77,7 +78,7 @@ export const WordSearchGameControls: React.FC<WordSearchGameControlsProps> = ({
                         {statsSlot}
                     </div>
                 </div>
-                <Button type="button" color="primary" onClick={() => start()}>
+                <Button type="button" color="primary" onClick={onPlayAgain}>
                     <FontAwesomeIcon icon={faArrowRotateLeft} /> {t("controls.playAgainButton")}
                 </Button>
             </>,

@@ -1,36 +1,35 @@
 import React from "react";
 import classnames from "classnames";
 
-export type LayoutVariant = "vertical" | "horizontal";
-export type ElementPlacement = "top" | "bottom" | "right" | "left";
+export type SidebarVariant = "vertical" | "horizontal";
+export type SideparPlacement = "top" | "bottom" | "right" | "left";
+export type TimerPlacement = "sidebar-left" | "sidebar-top" | "sidebar-right" | "sidebar-bottom";
 
-export type LayoutProps = {
-    sidebarConfig: {
-        layoutVariant?: LayoutVariant;
-        children?: React.ReactNode;
-        className?: string;
-        placement?: ElementPlacement;
+export type PublicLayoutProps = {
+    classNames?: {
+        container?: string;
+        boardWrapper?: string;
+        sidebarWrapper?: string;
     };
-    boardConfig: {
-        children?: React.ReactNode;
-        width?: number;
-        className?: string;
-        height?: number;
-    };
-    containerConfig: {
-        className?: string;
-    };
+    sidebarVariant?: SidebarVariant;
+    sidebarPlacement?: SideparPlacement;
+    timerPlacement?: TimerPlacement;
+};
+
+type LayoutProps = PublicLayoutProps & {
+    boardSlot: React.ReactNode;
+    timerSlot: React.ReactNode;
+    wordsListSlot: React.ReactNode;
 };
 
 export const Layout = ({
-    boardConfig: { children: boardSlot = null, width = 300, height = 300, className: boardClassName = "" } = {},
-    sidebarConfig: {
-        className: sidebarClassName = "",
-        children: sidebarChildren = null,
-        placement: sidebarPlacement = "right",
-        layoutVariant: sidebarLayoutVariant = "horizontal"
-    } = {},
-    containerConfig = { className: "" }
+    classNames = {},
+    boardSlot,
+    wordsListSlot,
+    timerSlot,
+    sidebarVariant = "horizontal",
+    sidebarPlacement = "right",
+    timerPlacement = "sidebar-top"
 }: LayoutProps) => {
     return (
         <div
@@ -43,37 +42,39 @@ export const Layout = ({
                     "flex-col-reverse": sidebarPlacement === "top"
                 },
                 "gap-3",
-                containerConfig.className
+                "h-full",
+                classNames.container
             )}
         >
             <div
                 className={classnames(
                     "flex",
+                    "flex-1",
                     "items-center",
                     "relative",
                     "select-none",
-                    "text-content1",
                     "justify-center",
-                    boardClassName
+                    classNames.boardWrapper
                 )}
             >
-                <div style={{ width, height }} className="relative overflow-hidden">
-                    {boardSlot}
-                </div>
+                {boardSlot}
             </div>
-            {sidebarChildren && (
+            {wordsListSlot && (
                 <div
                     className={classnames(
                         "flex",
                         {
-                            "flex-col": sidebarLayoutVariant === "vertical",
-                            "flex-row": sidebarLayoutVariant === "horizontal"
+                            "flex-col": sidebarVariant === "vertical" && timerPlacement === "sidebar-top",
+                            "flex-col-reverse": sidebarVariant === "vertical" && timerPlacement === "sidebar-bottom",
+                            "flex-row": sidebarVariant === "horizontal" && timerPlacement === "sidebar-left",
+                            "flex-row-reverse": sidebarVariant === "horizontal" && timerPlacement === "sidebar-right"
                         },
                         "gap-1",
-                        sidebarClassName
+                        classNames.sidebarWrapper
                     )}
                 >
-                    {sidebarChildren}
+                    {timerSlot}
+                    {wordsListSlot}
                 </div>
             )}
         </div>

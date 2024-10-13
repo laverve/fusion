@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Button } from "@nextui-org/react";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,20 +6,20 @@ import { faPlay, faArrowRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import classnames from "classnames";
 
 import { GameStatus, useGame } from "@laverve/fusion";
-import { SpellingSpreeContext } from "./SpellingSpree.context";
 
 export type SpellingSpreeGameControlsProps = {
     classNames?: string;
     statsSlot?: React.ReactNode;
+    onPlayAgain?: () => void;
 };
 
 export const SpellingSpreeGameControls: React.FC<SpellingSpreeGameControlsProps> = ({
     statsSlot,
-    classNames
+    classNames,
+    onPlayAgain
 }: SpellingSpreeGameControlsProps) => {
     const { t } = useTranslation();
-    const { start, status, reset: resetGameContext } = useGame();
-    const { reset } = useContext(SpellingSpreeContext);
+    const { start, status } = useGame();
 
     const wrap = (children: React.ReactNode, isGameOver: boolean = false) => {
         return (
@@ -78,15 +78,7 @@ export const SpellingSpreeGameControls: React.FC<SpellingSpreeGameControlsProps>
                         {statsSlot}
                     </div>
                 </div>
-                <Button
-                    type="button"
-                    color="primary"
-                    onClick={() => {
-                        reset();
-                        resetGameContext();
-                        start();
-                    }}
-                >
+                <Button type="button" color="primary" onClick={onPlayAgain}>
                     <FontAwesomeIcon icon={faArrowRotateLeft} /> {t("controls.playAgainButton")}
                 </Button>
             </>,

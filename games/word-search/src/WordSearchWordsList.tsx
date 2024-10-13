@@ -1,14 +1,14 @@
 import React, { useContext, useMemo } from "react";
 import classnames from "classnames";
 import { parseToRgba, toHex, readableColor } from "color2k";
-import { Chip } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import { WordSearchContext } from "./WordSearch.context";
 
 export type WordSearchWordsListProps = {
-    classNames?: string;
+    onWordClick?: (event: { word: string }) => unknown;
 };
 
-export const WordSearchWordsList: React.FC<WordSearchWordsListProps> = ({ classNames }: WordSearchWordsListProps) => {
+export const WordSearchWordsList: React.FC<WordSearchWordsListProps> = ({ onWordClick }: WordSearchWordsListProps) => {
     const { words, foundWords, selectedWordsColors } = useContext(WordSearchContext);
 
     const lowerCasedFoundWords = useMemo(() => foundWords.map((w) => w.toLowerCase()), [foundWords]);
@@ -32,13 +32,16 @@ export const WordSearchWordsList: React.FC<WordSearchWordsListProps> = ({ classN
     return (
         <div
             data-testid="testid-wordsearch-words-list"
-            className={classnames("box-border", "justify-center", "items-center", "flex-1", "gap-1", classNames)}
+            className={classnames("box-border", "justify-center", "items-center", "flex-1", "gap-1")}
         >
             {words.map((word) => (
-                <Chip
+                <Button
                     key={word}
+                    color="default"
+                    radius="full"
+                    size="sm"
                     data-testid={`testid-${word.toLowerCase()}`}
-                    className="m-1"
+                    className="m-1 px-2 py-1 !min-h-auto !h-auto !min-w-0 !w-auto"
                     style={{
                         ...(selectedWordsColorsWithoutOpacity.length > 0 && isWordSelected(word)
                             ? {
@@ -47,9 +50,10 @@ export const WordSearchWordsList: React.FC<WordSearchWordsListProps> = ({ classN
                               }
                             : {})
                     }}
+                    onClick={() => onWordClick?.({ word })}
                 >
                     <span className={classnames({ "line-through": isWordSelected(word) })}>{word}</span>
-                </Chip>
+                </Button>
             ))}
         </div>
     );

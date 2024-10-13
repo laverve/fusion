@@ -4,13 +4,12 @@ import { useTranslation } from "react-i18next";
 
 import { useGame } from "@laverve/fusion";
 import { MazeContext } from "./Maze.context";
-import { I18N_NAMESPACE } from "./types";
 
 export type MazeStatsProps = { classNames?: string };
 
 export const MazeStats: React.FC<MazeStatsProps> = ({ classNames = "" }) => {
     const { resources } = useContext(MazeContext);
-    const { t } = useTranslation(I18N_NAMESPACE);
+    const { t } = useTranslation();
 
     const { startTime, endTime } = useGame();
 

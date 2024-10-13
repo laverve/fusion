@@ -3,116 +3,85 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.0](https://github.com/laverve/fusion/compare/maze-game-v3.0.0...maze-game-v3.0.0) (2024-10-03)
+## [3.0.2](https://github.com/laverve/fusion/compare/maze-game-v3.0.1...maze-game-v3.0.2) (2024-10-03)
+
+
+### Bug Fixes
+
+* **fusion:** migrates to the latest version of fusion ([a78c577](https://github.com/laverve/fusion/commit/a78c577b8c57a93dcd1904c20c5c4f36801d453e))
+
+## [3.0.1](https://github.com/laverve/fusion/compare/maze-game-v3.0.0...maze-game-v3.0.1) (2024-09-21)
+
+
+### Bug Fixes
+
+* fixes peer dependencies ([0caca47](https://github.com/laverve/fusion/commit/0caca4752202a5aea41aec9c9fd2ba2e8141cc9a))
+
+## [3.0.0](https://github.com/laverve/fusion/compare/maze-game-v2.2.2...maze-game-v3.0.0) (2024-09-02)
 
 
 ### ⚠ BREAKING CHANGES
 
-* creating a new release after cleaning up
+* build ts module set to NodeNext and module resoultion set to Node
 
 ### Features
 
-* **pixi.js:** migrates to the lates version + restructuring repo ([b63d3be](https://github.com/laverve/fusion/commit/b63d3bee1a53ee7933b67b8e0574701b051b9186))
+* upgrade to tha latest dependencies ([fd1ee74](https://github.com/laverve/fusion/commit/fd1ee748fbc2d6bbe41e650dcbe198f4491db885))
+
+
+### Bug Fixes
+
+* experiment ([cba1064](https://github.com/laverve/fusion/commit/cba1064416f945ca1077ef7bd6d54cd43ab53746))
+* fixes pipeline ([0686098](https://github.com/laverve/fusion/commit/06860983ee231957ff72e8fb374124e5f92bf4b6))
+* fixes tsconfig ([#20](https://github.com/laverve/fusion/issues/20)) ([85ed9bb](https://github.com/laverve/fusion/commit/85ed9bb1c9ea6c22f3f0275fbe8c01f0a76e2bf3))
 
 
 ### Miscellaneous Chores
 
-* bump version ([5000aab](https://github.com/laverve/fusion/commit/5000aaba0487d91b51c023333dd07637167cc221))
-* release 3.0.0 ([bcb0164](https://github.com/laverve/fusion/commit/bcb0164e2024fab9bca5f217dc54ecea8f6ca4e5))
+* bump version ([521e580](https://github.com/laverve/fusion/commit/521e58041a0c87b1baecd4dc2392b27179c7c0d1))
+* release 2.2.2 ([6eae6ac](https://github.com/laverve/fusion/commit/6eae6acae6a4364016bb0c794c8717adde920822))
+* release 3.0.0 ([06a47a2](https://github.com/laverve/fusion/commit/06a47a238ce238a47660c604b0691648a2dd4617))
 
-## [3.0.0](https://github.com/laverve/fusion/compare/maze-game-v1.0.0...maze-game-v3.0.0) (2024-10-03)
+## 2.1.2 (2024-09-01)
 
 
 ### ⚠ BREAKING CHANGES
 
-* creating a new release after cleaning up
+* build ts module set to NodeNext and module resoultion set to Node
 
 ### Features
 
-* **pixi.js:** migrates to the lates version + restructuring repo ([b63d3be](https://github.com/laverve/fusion/commit/b63d3bee1a53ee7933b67b8e0574701b051b9186))
+* upgrade to tha latest dependencies ([fd1ee74](https://github.com/laverve/fusion/commit/fd1ee748fbc2d6bbe41e650dcbe198f4491db885))
+
+
+### Bug Fixes
+
+* experiment ([cba1064](https://github.com/laverve/fusion/commit/cba1064416f945ca1077ef7bd6d54cd43ab53746))
+* fixes pipeline ([0686098](https://github.com/laverve/fusion/commit/06860983ee231957ff72e8fb374124e5f92bf4b6))
+* fixes tsconfig ([#20](https://github.com/laverve/fusion/issues/20)) ([85ed9bb](https://github.com/laverve/fusion/commit/85ed9bb1c9ea6c22f3f0275fbe8c01f0a76e2bf3))
 
 
 ### Miscellaneous Chores
 
-* bump version ([5000aab](https://github.com/laverve/fusion/commit/5000aaba0487d91b51c023333dd07637167cc221))
-* release 3.0.0 ([bcb0164](https://github.com/laverve/fusion/commit/bcb0164e2024fab9bca5f217dc54ecea8f6ca4e5))
+* bump version ([521e580](https://github.com/laverve/fusion/commit/521e58041a0c87b1baecd4dc2392b27179c7c0d1))
 
-## 1.0.0 (2024-10-03)
-
-
-### ⚠ BREAKING CHANGES
-
-* creating a new release after cleaning up
-
-### Features
-
-* **pixi.js:** migrates to the lates version + restructuring repo ([b63d3be](https://github.com/laverve/fusion/commit/b63d3bee1a53ee7933b67b8e0574701b051b9186))
-
-
-### Miscellaneous Chores
-
-* bump version ([5000aab](https://github.com/laverve/fusion/commit/5000aaba0487d91b51c023333dd07637167cc221))
-
-
-### Dependencies
-
-* The following workspace dependencies were updated
-  * dependencies
-    * @laverve/fusion bumped from ^2.0.18 to ^3.0.0
-
-## 2.0.18 (2024-09-28)
+## 2.0.9 (2024-08-31)
 
 **Note:** Version bump only for package @laverve/maze-game
 
-## 2.0.17 (2024-09-18)
+## 2.0.8 (2024-08-19)
 
 **Note:** Version bump only for package @laverve/maze-game
 
-## 2.0.16 (2024-09-01)
+## 2.0.7 (2024-08-19)
 
 **Note:** Version bump only for package @laverve/maze-game
 
-## 2.0.15 (2024-08-31)
+## 2.0.6 (2024-07-24)
 
 **Note:** Version bump only for package @laverve/maze-game
 
-## 2.0.14 (2024-08-19)
-
-**Note:** Version bump only for package @laverve/maze-game
-
-## 2.0.13 (2024-08-19)
-
-**Note:** Version bump only for package @laverve/maze-game
-
-## 2.0.12 (2024-07-24)
-
-**Note:** Version bump only for package @laverve/maze-game
-
-## 2.0.11 (2024-07-19)
-
-**Note:** Version bump only for package @laverve/maze-game
-
-## 2.0.10 (2024-07-19)
-
-**Note:** Version bump only for package @laverve/maze-game
-
-## 2.0.9 (2024-07-19)
-
-**Note:** Version bump only for package @laverve/maze-game
-
-## 2.0.8 (2024-07-19)
-
-**Note:** Version bump only for package @laverve/maze-game
-
-## 2.0.7 (2024-07-19)
-
-**Note:** Version bump only for package @laverve/maze-game
-
-## 2.0.6 (2024-07-19)
-
-**Note:** Version bump only for package @laverve/maze-game
-
-## 2.0.5 (2024-07-18)
+## 2.0.5 (2024-07-19)
 
 **Note:** Version bump only for package @laverve/maze-game
 
@@ -130,13 +99,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 2.0.1 (2024-07-17)
 
-### Bug Fixes
-
--   fixes references to git repo ([c5502e3](https://github.com/laverve/fusion/commit/c5502e39d80f40db83e3d9a49b1bfb1ba1984fc1))
+**Note:** Version bump only for package @laverve/maze-game
 
 # 2.0.0 (2024-07-17)
 
--   chore!: bump version ([5000aab](https://github.com/laverve/games/commit/5000aaba0487d91b51c023333dd07637167cc221))
+-   chore!: bump version ([5000aab](https://github.com/laverve/fusion/commit/5000aaba0487d91b51c023333dd07637167cc221))
 
 ### BREAKING CHANGES
 

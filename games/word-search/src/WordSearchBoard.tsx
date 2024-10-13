@@ -1,10 +1,20 @@
-import React, { useState, TouchEvent, MouseEvent, useContext, useEffect, useRef, useMemo } from "react";
+import React, {
+    useState,
+    TouchEvent,
+    MouseEvent,
+    useContext,
+    useEffect,
+    useRef,
+    useMemo,
+    useLayoutEffect
+} from "react";
 import classnames from "classnames";
 import { v4 as uuid } from "uuid";
 import { parseToRgba, toHex } from "color2k";
-import { useGame, GameStatus } from "@laverve/fusion";
+import { GameContext, GameStatus } from "@laverve/fusion";
 import { WordSearchContext } from "./WordSearch.context";
-import { generatePath } from "./lib/path";
+import { generatePath, generateSVGPath } from "./lib/path";
+import { WordSearchBoardCell } from "./types";
 
 export type WordSearchBoardProps = {
     classNames?: Record<"container" | "cell", string>;
@@ -17,20 +27,26 @@ export const WordSearchBoard: React.FC<WordSearchBoardProps> = ({
     height,
     classNames = { container: "", cell: "" }
 }: WordSearchBoardProps) => {
-    const { foundWords, onWordFound, grid, gridCells, words, selectedWordsColors } = useContext(WordSearchContext);
-    const { status } = useGame();
+    const { foundWords, onMiss, onWordFound, grid, gridCells, words, selectedWordsColors } =
+        useContext(WordSearchContext);
+    const { status } = useContext(GameContext);
 
     const lowerCasedWords = useMemo(() => words.map((w) => w.toLowerCase()), [words]);
     const lowerCasedFoundWords = useMemo(() => foundWords.map((w) => w.toLowerCase()), [foundWords]);
 
     const containerRef = useRef<HTMLDivElement>(null);
+    const svgRef = useRef<SVGSVGElement>(null);
     const [isSelecting, setIsSelecting] = useState<boolean>(false);
     const [selectedCells, setSelectedCells] = useState<Map<string, boolean>>(new Map());
     const [startCellBlock, setStartCellBlock] = useState<HTMLDivElement | null>(null);
     const [endCellBlock, setEndCellBlock] = useState<HTMLDivElement | null>(null);
     const [selectedPathWidth, setSelectedPathWidth] = useState<number>(1);
+    const [hScale, setHScale] = useState<number>(1);
+    const [vScale, setVScale] = useState<number>(1);
     const [highlightedPath, setHighlightedPath] = useState("");
-    const [selectedPaths, setSelectedPaths] = useState<{ key: string; path: string }[]>([]);
+    const [selectedPaths, setSelectedPaths] = useState<
+        { key: string; path: string; startCell?: WordSearchBoardCell; endCell?: WordSearchBoardCell }[]
+    >([]);
 
     const selectedWordsColorsWithOpacity = useMemo(
         () =>
@@ -51,11 +67,79 @@ export const WordSearchBoard: React.FC<WordSearchBoardProps> = ({
         }
     }, [status]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (containerRef.current) {
-            setSelectedPathWidth((containerRef.current.children?.[0]?.getBoundingClientRect()?.width ?? 4) / 1.5);
+            const w = containerRef.current.children?.[0]?.getBoundingClientRect()?.width ?? 4;
+            const h = containerRef.current.children?.[0]?.getBoundingClientRect()?.height ?? 4;
+            const min = Math.min(w, h);
+            if (selectedPathWidth !== min / 1.5) {
+                setSelectedPathWidth(min / 1.5);
+            }
         }
-    }, [containerRef]);
+    }, [containerRef?.current?.getBoundingClientRect()]);
+
+    useEffect(() => {
+        if (!svgRef.current) {
+            return;
+        }
+
+        const onResize = () => {
+            if (!svgRef.current) {
+                return;
+            }
+            const { width: svgWidth, height: svgHeight } = svgRef.current?.getBoundingClientRect() ?? {
+                width,
+                height
+            };
+            const newHScale = svgWidth / width;
+            const newVScale = svgHeight / height;
+            if (newHScale !== hScale) {
+                setHScale(newHScale);
+            }
+            if (newVScale !== vScale) {
+                setVScale(newVScale);
+            }
+        };
+
+        onResize();
+
+        window.addEventListener("resize", onResize);
+        return () => {
+            window.removeEventListener("resize", onResize);
+        };
+    }, [svgRef, containerRef, hScale, vScale, width, height, selectedPathWidth, selectedPaths]);
+
+    useEffect(() => {
+        const onResize = () => {
+            if (!containerRef?.current) {
+                return;
+            }
+
+            setSelectedPaths(
+                selectedPaths.map((selectedPath) => {
+                    return {
+                        ...selectedPath,
+                        path: generateSVGPath({
+                            vScale,
+                            hScale,
+                            startCell: containerRef?.current?.querySelector(
+                                `[data-key="${selectedPath.startCell?.row}-${selectedPath.startCell?.col}"]`
+                            ),
+                            endCell: containerRef?.current?.querySelector(
+                                `[data-key="${selectedPath.endCell?.row}-${selectedPath.endCell?.col}"]`
+                            ),
+                            container: containerRef.current
+                        })
+                    };
+                })
+            );
+        };
+
+        window.addEventListener("resize", onResize);
+        return () => {
+            window.removeEventListener("resize", onResize);
+        };
+    }, [containerRef.current, hScale, vScale, selectedPaths]);
 
     const updateSelectedPath = ({
         startCell,
@@ -64,39 +148,7 @@ export const WordSearchBoard: React.FC<WordSearchBoardProps> = ({
         startCell?: HTMLDivElement | null;
         endCell?: HTMLDivElement | null;
     }) => {
-        if (!startCell || !endCell || !containerRef.current) {
-            return;
-        }
-
-        const startCellBoundingClientRect = startCell.getBoundingClientRect();
-        const endCellBoundingClientRect = endCell.getBoundingClientRect();
-        const containerClientBoundingRect = containerRef.current.getBoundingClientRect();
-
-        const normalizedStart = {
-            x:
-                startCellBoundingClientRect.x -
-                (containerClientBoundingRect?.left ?? 0) +
-                startCellBoundingClientRect.width * 0.5,
-            y:
-                startCellBoundingClientRect.y -
-                (containerClientBoundingRect?.top ?? 0) +
-                startCellBoundingClientRect.height * 0.5
-        };
-
-        const normalizedEnd = {
-            x:
-                endCellBoundingClientRect.x -
-                (containerClientBoundingRect?.left ?? 0) +
-                startCellBoundingClientRect.width * 0.5,
-            y:
-                endCellBoundingClientRect.y -
-                (containerClientBoundingRect?.top ?? 0) +
-                startCellBoundingClientRect.height * 0.5
-        };
-
-        setHighlightedPath(
-            `M ${normalizedStart.x - 1} ${normalizedStart.y - 1} L ${normalizedEnd.x + 1} ${normalizedEnd.y - 1} `
-        );
+        setHighlightedPath(generateSVGPath({ vScale, hScale, startCell, endCell, container: containerRef.current }));
     };
 
     const updateSelectedCells = (path: string[]) => {
@@ -129,9 +181,11 @@ export const WordSearchBoard: React.FC<WordSearchBoardProps> = ({
             if (foundIdx > -1 && foundEarlierIdx < 0) {
                 onWordFound(words[foundIdx]);
                 updateSelectedCells(path);
-                setSelectedPaths([...selectedPaths, { key: uuid(), path: highlightedPath }]);
+                setSelectedPaths([...selectedPaths, { key: uuid(), path: highlightedPath, startCell, endCell }]);
             }
         }
+
+        onMiss();
 
         setIsSelecting(false);
         setEndCellBlock(null);
@@ -228,8 +282,10 @@ export const WordSearchBoard: React.FC<WordSearchBoardProps> = ({
             xmlns="http://www.w3.org/2000/svg"
             viewBox={`0 0 ${width} ${height}`}
             className="touch-none"
+            ref={svgRef}
             style={{
-                width: "100%"
+                width: width,
+                height: height
             }}
         >
             <foreignObject x="0" y="0" width={width} height={height}>
@@ -238,19 +294,19 @@ export const WordSearchBoard: React.FC<WordSearchBoardProps> = ({
                     className={classnames(
                         "bg-divider",
                         "border-divider",
+                        "border-0",
                         "p-1",
                         "gap-1",
                         classNames?.container ?? "",
                         "grid",
                         "box-border",
-                        `grid-cols-${grid?.[0]?.length || 1}`,
-                        `grid-rows-${grid?.length || 1}`,
                         { "blur-sm": !isGameInProgress() }
                     )}
                     style={{
                         height,
                         width,
-                        borderWidth: "initial !important"
+                        gridTemplateColumns: `repeat(${grid?.[0]?.length || 1}, minmax(0, 1fr))`,
+                        gridTemplateRows: `repeat(${grid?.length || 1}, minmax(0, 1fr))`
                     }}
                     onMouseDown={onInteractionStart}
                     onMouseMove={onMouseMove}
@@ -268,7 +324,7 @@ export const WordSearchBoard: React.FC<WordSearchBoardProps> = ({
                                 className={classnames(
                                     "uppercase",
                                     "cursor-pointer",
-                                    "bg-foreground",
+                                    "bg-content1",
                                     classNames.cell,
                                     "flex",
                                     "items-center",

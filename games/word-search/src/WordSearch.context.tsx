@@ -1,17 +1,20 @@
-import React, { createContext, PropsWithChildren, useEffect, useMemo, useState } from "react";
+import React, { createContext, PropsWithChildren, useCallback, useEffect, useMemo, useState } from "react";
 
 import { v4 as uuid } from "uuid";
 import { useGame, GameStatus } from "@laverve/fusion";
 import { WordSearchBoardCell } from "./types";
 
-export type WordFoundEvent = { word: string; foundWords: string[] };
+export type WordFoundEvent = { word: string; foundWords: string[]; time: number };
+export type MissEvent = { time: number };
 
 export type WordSearchContextProviderEvents = {
     onWordFound?: (event: WordFoundEvent) => unknown;
+    onMiss?: (event: MissEvent) => unknown;
 };
 
 export type WordSearchContextValue = {
     onWordFound: (word: string) => void;
+    onMiss: () => void;
     reset: () => void;
     grid: string[][];
     words: string[];
@@ -22,6 +25,7 @@ export type WordSearchContextValue = {
 
 export const WordSearchContext = createContext<WordSearchContextValue>({
     onWordFound: () => {},
+    onMiss: () => {},
     reset: () => {},
     grid: [],
     words: [],
@@ -37,15 +41,18 @@ export type WordSearchContextProviderProps = PropsWithChildren & {
     events?: WordSearchContextProviderEvents;
 };
 
+const DEFAULT_SELECTED_WORDS_COLORS = ["rgba(0,0,0,0.4)"];
+
 export const WordSearchContextProvider: React.FC<WordSearchContextProviderProps> = ({
     children,
     words,
-    selectedWordsColors = ["rgba(0,0,0,0.4)"],
+    selectedWordsColors = DEFAULT_SELECTED_WORDS_COLORS,
     grid,
     events
 }) => {
     const [foundWords, setFoundWords] = useState<string[]>([]);
-    const { stop, status } = useGame();
+
+    const { stop, status, startTime, reset: resetGameContext } = useGame();
 
     const gridCells: Map<string, WordSearchBoardCell> = useMemo(() => {
         return (
@@ -64,12 +71,19 @@ export const WordSearchContextProvider: React.FC<WordSearchContextProviderProps>
         );
     }, [grid]);
 
-    const onWordFound = (word: string) => {
-        const newFoundWords = [...foundWords, word];
+    const onWordFound = useCallback(
+        (word: string) => {
+            const newFoundWords = [...foundWords, word];
 
-        setFoundWords(newFoundWords);
-        events?.onWordFound?.({ word, foundWords: newFoundWords });
-    };
+            setFoundWords(newFoundWords);
+            events?.onWordFound?.({ word, foundWords: newFoundWords, time: Date.now() - (startTime || 0) });
+        },
+        [startTime, foundWords, events?.onWordFound]
+    );
+
+    const onMiss = useCallback(() => {
+        events?.onMiss?.({ time: Date.now() - (startTime || 0) });
+    }, [startTime, events?.onMiss]);
 
     const reset = () => {
         setFoundWords([]);
@@ -83,7 +97,8 @@ export const WordSearchContextProvider: React.FC<WordSearchContextProviderProps>
 
     useEffect(() => {
         reset();
-    }, [grid, words, selectedWordsColors]);
+        resetGameContext();
+    }, [gridCells, words, selectedWordsColors]);
 
     useEffect(() => {
         if (status === GameStatus.IN_PROGRESS || status === GameStatus.READY) {
@@ -99,9 +114,10 @@ export const WordSearchContextProvider: React.FC<WordSearchContextProviderProps>
             gridCells,
             grid: grid || [],
             onWordFound,
+            onMiss,
             reset
         }),
-        [grid, gridCells, words, foundWords, selectedWordsColors]
+        [grid, gridCells, words, foundWords, selectedWordsColors, onMiss, onWordFound]
     );
 
     return <WordSearchContext.Provider value={contextValue}>{children}</WordSearchContext.Provider>;

@@ -5,7 +5,7 @@
     "exclude": ["./**/*.png", "./**/*.gif", "./**/*.css", "./**/*.svg", "./**/*.jpeg"],
     "extends": "../../tsconfig.eslint.json",
     "include": [
-        "./.eslintrc.js",
+        "eslint.config.js",
         "./*.js",
         "./*.ts",
         "./src/**/*.ts",

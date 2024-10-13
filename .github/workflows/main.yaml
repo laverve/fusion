@@ -13,6 +13,7 @@ permissions:
 env:
     TARGET_ENVIRONMENT: production
     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
     build:
@@ -20,6 +21,8 @@ jobs:
 
         steps:
             - uses: actions/checkout@v4
+              with:
+                  ref: "main"
             - name: Use Node.js
               uses: actions/setup-node@v4
               with:
@@ -29,6 +32,7 @@ jobs:
             - uses: ./.github/actions/lint
             - uses: ./.github/actions/build
             - uses: ./.github/actions/test
+            - uses: ./.github/actions/build-storybook
 
     Release-Please:
         runs-on: ubuntu-latest
@@ -38,7 +42,10 @@ jobs:
         concurrency: Draft-Release
 
         outputs:
-            release_created: ${{ steps.release.outputs['fusion--release_created'] }}
+            fusion_release_created: ${{ steps.release.outputs['games/fusion--release_created'] }}
+            maze_release_created: ${{ steps.release.outputs['games/maze--release_created'] }}
+            wordsearch_release_created: ${{ steps.release.outputs['games/word-search--release_created'] }}
+            spelling_spree_release_created: ${{ steps.release.outputs['games/spelling-spree--release_created'] }}
 
         steps:
             - uses: actions/checkout@v4
@@ -54,7 +61,7 @@ jobs:
 
         concurrency: Publish-NPM-Packages
 
-        if: ${{ needs.Release-Please.outputs.release_created }}
+        if: ${{ needs.Release-Please.outputs.wordsearch_release_created || needs.Release-Please.outputs.maze_release_created || needs.Release-Please.outputs.spelling_spree_release_created || needs.Release-Please.outputs.fusion_release_created }}
 
         steps:
             - uses: actions/checkout@v4
@@ -66,13 +73,26 @@ jobs:
             - uses: ./.github/actions/install
             - uses: ./.github/actions/build
             - uses: ./.github/actions/publish
+              if: ${{ needs.Release-Please.outputs.fusion_release_created }}
               with:
                   package: fusion
+            - uses: ./.github/actions/publish
+              if: ${{ needs.Release-Please.outputs.wordsearch_release_created }}
+              with:
+                  package: games/word-search
+            - uses: ./.github/actions/publish
+              if: ${{ needs.Release-Please.outputs.maze_release_created }}
+              with:
+                  package: games/maze
+            - uses: ./.github/actions/publish
+              if: ${{ needs.Release-Please.outputs.maze_release_created }}
+              with:
+                  package: games/spelling-spree
 
     Publish-GH-Pages:
         needs: [Release-Please]
 
-        if: ${{ needs.Release-Please.outputs.release_created }}
+        if: ${{ needs.Release-Please.outputs.wordsearch_release_created || needs.Release-Please.outputs.maze_release_created || needs.Release-Please.outputs.spelling_spree_release_created || needs.Release-Please.outputs.fusion_release_created }}
 
         runs-on: ubuntu-latest
 

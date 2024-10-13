@@ -6,7 +6,6 @@ import { faPlay, faArrowRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import classnames from "classnames";
 
 import { GameStatus, useGame } from "@laverve/fusion";
-import { I18N_NAMESPACE } from "./types";
 
 export type MazeGameControlsProps = {
     classNames?: string;
@@ -14,7 +13,7 @@ export type MazeGameControlsProps = {
 };
 
 export const MazeGameControls: React.FC<MazeGameControlsProps> = ({ statsSlot, classNames }: MazeGameControlsProps) => {
-    const { t } = useTranslation(I18N_NAMESPACE);
+    const { t } = useTranslation();
     const { start, status } = useGame();
 
     const wrap = (children: React.ReactNode, isGameOver: boolean = false) => {

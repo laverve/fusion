@@ -7,6 +7,8 @@ import { MazeStats } from "./MazeStats";
 import { MazeSidebar } from "./MazeSidebar";
 import { Layout, LayoutProps } from "./Layout";
 import { MazeScene, MazeSceneProps } from "./MazeScene";
+import { I18nextProvider } from "react-i18next";
+import { i18n as i18nInstance } from "./i18n";
 
 export type MazeGameProps = {
     events?: MazeContextProviderProps["events"] & GameContextProviderProps["events"];
@@ -35,46 +37,48 @@ export const MazeGame: React.FC<MazeGameProps> = ({
     sidebarConfig = {}
 }) => {
     return (
-        <GameContextProvider
-            timeout={timeout || 0}
-            events={{
-                onReset: events?.onReset,
-                onStart: events?.onStart,
-                onStop: events?.onStop,
-                onTimedOut: events?.onTimedOut
-            }}
-        >
-            <MazeContextProvider
-                exitPoint={exitPoint}
-                grid={grid}
-                hero={hero}
-                events={events}
-                resources={resources}
-                predators={predators}
-                tileSize={tileSize}
-                minPadding={minPadding}
-                boardSize={{ width: boardWidth, height: boardHeight }}
+        <I18nextProvider i18n={i18nInstance}>
+            <GameContextProvider
+                timeout={timeout || 0}
+                events={{
+                    onReset: events?.onReset,
+                    onStart: events?.onStart,
+                    onStop: events?.onStop,
+                    onTimedOut: events?.onTimedOut
+                }}
             >
-                <Layout
-                    boardConfig={{
-                        children: (
-                            <>
-                                <World eventMode="dynamic">
-                                    <MazeScene assets={assets} />
-                                </World>
-                                <MazeGameControls statsSlot={<MazeStats />} />
-                            </>
-                        ),
-                        width: boardWidth,
-                        height: boardHeight
-                    }}
-                    sidebarConfig={{
-                        ...sidebarConfig,
-                        children: <MazeSidebar />
-                    }}
-                    containerConfig={{}}
-                />
-            </MazeContextProvider>
-        </GameContextProvider>
+                <MazeContextProvider
+                    exitPoint={exitPoint}
+                    grid={grid}
+                    hero={hero}
+                    events={events}
+                    resources={resources}
+                    predators={predators}
+                    tileSize={tileSize}
+                    minPadding={minPadding}
+                    boardSize={{ width: boardWidth, height: boardHeight }}
+                >
+                    <Layout
+                        boardConfig={{
+                            children: (
+                                <>
+                                    <World eventMode="dynamic">
+                                        <MazeScene assets={assets} />
+                                    </World>
+                                    <MazeGameControls statsSlot={<MazeStats />} />
+                                </>
+                            ),
+                            width: boardWidth,
+                            height: boardHeight
+                        }}
+                        sidebarConfig={{
+                            ...sidebarConfig,
+                            children: <MazeSidebar />
+                        }}
+                        containerConfig={{}}
+                    />
+                </MazeContextProvider>
+            </GameContextProvider>
+        </I18nextProvider>
     );
 };

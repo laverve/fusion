@@ -4,13 +4,12 @@ import { useTranslation } from "react-i18next";
 
 import { useGame } from "@laverve/fusion";
 import { WordSearchContext } from "./WordSearch.context";
-import { I18N_NAMESPACE } from "./types";
 
 export type WordSearchStatsProps = { classNames?: string };
 
 export const WordSearchStats: React.FC<WordSearchStatsProps> = ({ classNames = "" }) => {
     const { foundWords } = useContext(WordSearchContext);
-    const { t } = useTranslation(I18N_NAMESPACE);
+    const { t } = useTranslation();
 
     const { startTime, endTime } = useGame();
 

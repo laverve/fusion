@@ -9,7 +9,7 @@ env:
     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
-    lint:
+    build:
         runs-on: ubuntu-latest
 
         steps:
@@ -21,17 +21,5 @@ jobs:
                   cache: "npm"
             - uses: ./.github/actions/install
             - uses: ./.github/actions/lint
-
-    test:
-        runs-on: ubuntu-latest
-
-        steps:
-            - uses: actions/checkout@v4
-            - name: Use Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version-file: .nvmrc
-                  cache: "npm"
-            - uses: ./.github/actions/install
             - uses: ./.github/actions/build
             - uses: ./.github/actions/test

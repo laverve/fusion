@@ -32,3 +32,53 @@ export const generatePath = (startCell?: WordSearchBoardCell | null, endCell?: W
     }
     return path;
 };
+
+export const generateSVGPath = ({
+    startCell,
+    endCell,
+    container,
+    hScale,
+    vScale
+}: {
+    startCell?: HTMLDivElement | null;
+    endCell?: HTMLDivElement | null;
+    container?: HTMLDivElement | null;
+    hScale: number;
+    vScale: number;
+}) => {
+    if (!startCell || !endCell || !container) {
+        return "";
+    }
+
+    const startCellBoundingClientRect = startCell.getBoundingClientRect();
+    const endCellBoundingClientRect = endCell.getBoundingClientRect();
+    const containerClientBoundingRect = container.getBoundingClientRect();
+
+    const normalizedStart = {
+        x:
+            (startCellBoundingClientRect.x -
+                (containerClientBoundingRect?.left ?? 0) +
+                startCellBoundingClientRect.width * 0.5) /
+            hScale,
+        y:
+            (startCellBoundingClientRect.y -
+                (containerClientBoundingRect?.top ?? 0) +
+                startCellBoundingClientRect.height * 0.5) /
+            vScale
+    };
+
+    const normalizedEnd = {
+        x:
+            (endCellBoundingClientRect.x -
+                (containerClientBoundingRect?.left ?? 0) +
+                startCellBoundingClientRect.width * 0.5) /
+            hScale,
+        y:
+            (endCellBoundingClientRect.y -
+                (containerClientBoundingRect?.top ?? 0) +
+                startCellBoundingClientRect.height * 0.5) /
+            vScale
+    };
+
+    return `M ${normalizedStart.x - 1} ${normalizedStart.y - 1} L ${normalizedEnd.x + 1} ${normalizedEnd.y - 1} `;
+};

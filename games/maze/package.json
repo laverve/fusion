@@ -1,27 +1,19 @@
 {
     "author": "Victor Pishuk <victor.pishuk@gmail.com>",
-    "type": "module",
     "bugs": {
         "url": "https://github.com/laverve/fusion/issues"
     },
     "dependencies": {
-        "@fortawesome/free-solid-svg-icons": "^6.4.2",
-        "@fortawesome/react-fontawesome": "^0.2.0",
+        "@fortawesome/free-solid-svg-icons": "^6.6.0",
+        "@fortawesome/react-fontawesome": "^0.2.2",
         "@laverve/fusion": "^3.0.0",
-        "@laverve/i18n-provider": "^5.0.0",
         "@laverve/timer": "^3.1.1",
         "classnames": "^2.3.2",
+        "i18next": "^23.15.1",
         "react": "^18.2.0",
         "react-i18next": "15.0.2"
     },
     "description": "This module offers a set of components needed to configure and play Maze game.",
-    "keywords": [
-        "game",
-        "maze"
-    ],
-    "license": "MIT",
-    "main": "./dist/src/index.js",
-    "types": "./dist/src/index.d.ts",
     "files": [
         "./dist/src/",
         "./src/",
@@ -30,22 +22,33 @@
         "README.md",
         "LICENSE"
     ],
+    "keywords": [
+        "game",
+        "maze"
+    ],
+    "license": "MIT",
+    "main": "./dist/src/index.js",
+    "name": "@laverve/maze-game",
+    "peerDependencies": {
+        "@nextui-org/react": "^2.4.8",
+        "react": "^18.2.0"
+    },
     "publishConfig": {
         "access": "restricted"
     },
-    "private": "true",
-    "name": "@laverve/maze-game",
     "repository": {
         "type": "git",
-        "url": "https://github.com/laverve/fusion.git"
+        "url": "https://github.com/laverve/games.git"
     },
     "scripts": {
+        "build": "rimraf ./dist && tsc",
+        "build:dev": "rimraf ./dist && tsc",
         "lint": "eslint .",
         "lint:staged": "lint-staged",
-        "test": "jest --passWithNoTests",
-        "build": "rimraf dist/ && tsc",
-        "build:dev": "tsc -w"
+        "test": "jest --passWithNoTests"
     },
-    "version": "3.0.0",
+    "type": "module",
+    "types": "./dist/src/index.d.ts",
+    "version": "3.0.2",
     "webpack": "./src/index.tsx"
 }

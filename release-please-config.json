@@ -15,17 +15,15 @@
         },
         "games/maze": {
             "changelog-path": "CHANGELOG.md",
-            "release-type": "node",
-            "skip-github-pull-request": true,
-            "skip-github-release": true,
-            "skip-snapshot": true
+            "release-type": "node"
         },
         "games/word-search": {
             "changelog-path": "CHANGELOG.md",
-            "release-type": "node",
-            "skip-github-pull-request": true,
-            "skip-github-release": true,
-            "skip-snapshot": true
+            "release-type": "node"
+        },
+        "games/spelling-spree": {
+            "changelog-path": "CHANGELOG.md",
+            "release-type": "node"
         },
         "storybook": {
             "changelog-path": "CHANGELOG.md",
