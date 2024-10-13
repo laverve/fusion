@@ -6,7 +6,7 @@
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.6.0",
         "@fortawesome/react-fontawesome": "^0.2.2",
-        "@laverve/fusion": "^3.0.0",
+        "@laverve/fusion": "^3.0.1",
         "@laverve/timer": "^3.1.1",
         "@laverve/use-parent-size": "^1.0.0",
         "@types/uuid": "^10.0.0",
