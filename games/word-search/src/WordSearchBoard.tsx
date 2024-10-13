@@ -136,6 +136,7 @@ export const WordSearchBoard: React.FC<WordSearchBoardProps> = ({
         };
 
         window.addEventListener("resize", onResize);
+
         return () => {
             window.removeEventListener("resize", onResize);
         };
