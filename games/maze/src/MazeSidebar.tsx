@@ -1,6 +1,6 @@
 import React from "react";
 
-import { GameStatus, useGame } from "@laverve/fusion";
+import { GameStatus, useGame } from "pixi-fusion";
 import { Timer, useTimer } from "@laverve/timer";
 
 export const MazeSidebar: React.FC = () => {

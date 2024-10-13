@@ -6,7 +6,7 @@
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.6.0",
         "@fortawesome/react-fontawesome": "^0.2.2",
-        "@laverve/fusion": "^1.0.0",
+        "pixi-fusion": "^1.0.0",
         "@laverve/timer": "^3.1.1",
         "@laverve/use-parent-size": "^1.0.0",
         "@types/uuid": "^10.0.0",
@@ -30,7 +30,7 @@
     ],
     "license": "MIT",
     "main": "./dist/index.js",
-    "name": "@laverve/spelling-spree-game",
+    "name": "@laverve/games-spelling-spree",
     "peerDependencies": {
         "@nextui-org/react": "^2.4.6",
         "react": "^18.2.0"

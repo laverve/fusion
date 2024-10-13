@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { GameStatus, useGame, useGlobalEventHandler, useSprite } from "@laverve/fusion";
+import { GameStatus, useGame, useGlobalEventHandler, useSprite } from "pixi-fusion";
 import { MazeContext } from "./Maze.context";
 import { HERO_TEXTURE_ALIAS } from "./helpers";
 

@@ -1,6 +1,6 @@
 import { forwardRef, useEffect, useState } from "react";
 import { AnimatedSprite } from "pixi.js";
-import { GameStatus, useAnimatedSprite, useCamera, useGame, useTickerCallback } from "@laverve/fusion";
+import { GameStatus, useAnimatedSprite, useCamera, useGame, useTickerCallback } from "pixi-fusion";
 
 import { HERO_TEXTURE_ALIAS } from "./helpers";
 

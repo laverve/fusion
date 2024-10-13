@@ -1,6 +1,6 @@
 import React from "react";
 
-import { WordSearchGameProps, WordSearchGame } from "@laverve/word-search-game";
+import { WordSearchGameProps, WordSearchGame } from "@laverve/games-wordsearch";
 import { Card, CardBody, NextUIProvider } from "@nextui-org/react";
 
 import "../../css/app.css";

@@ -1,6 +1,6 @@
 import React, { createContext, PropsWithChildren, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { GameStatus, useGame } from "@laverve/fusion";
+import { GameStatus, useGame } from "pixi-fusion";
 
 export type WordCompleteEvent = { word: string; completedWords: string[]; time: number };
 export type MistakeEvent = { word: string; position: number; letter: string; time: number };

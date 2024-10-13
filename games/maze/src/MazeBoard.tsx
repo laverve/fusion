@@ -1,5 +1,5 @@
 import React from "react";
-import { useSprite } from "@laverve/fusion";
+import { useSprite } from "pixi-fusion";
 import { BACKGROUND_TEXTURE_ALIAS } from "./helpers";
 
 export const MazeBoard: React.FC = () => {

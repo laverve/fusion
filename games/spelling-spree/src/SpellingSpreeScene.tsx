@@ -9,7 +9,7 @@ import {
     GameStatus,
     useGlobalEventHandler,
     useCollisionDetection
-} from "@laverve/fusion";
+} from "pixi-fusion";
 import { Sprite, AnimatedSprite } from "pixi.js";
 import { SpellingSpreeBoard } from "./SpellingSpreeBoard";
 import { SpellingSpreeHero } from "./SpellingSpreeHero";

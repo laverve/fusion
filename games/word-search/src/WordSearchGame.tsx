@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { GameContextProvider, GameContextProviderProps } from "@laverve/fusion";
+import { GameContextProvider, GameContextProviderProps } from "pixi-fusion";
 import {
     WordSearchContextValue,
     WordSearchContextProvider,

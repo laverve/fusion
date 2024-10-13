@@ -24,7 +24,7 @@
     "license": "MIT",
     "main": "./dist/src/index.js",
     "types": "./dist/src/index.d.ts",
-    "name": "@laverve/fusion",
+    "name": "pixi-fusion",
     "files": [
         "./dist/src/",
         "./src/",

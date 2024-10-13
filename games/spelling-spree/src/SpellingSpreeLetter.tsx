@@ -1,5 +1,5 @@
 import { forwardRef, useEffect, useState } from "react";
-import { useSprite, useTickerCallback } from "@laverve/fusion";
+import { useSprite, useTickerCallback } from "pixi-fusion";
 
 import { LETTER_BACKGROUND_ALIAS } from "./helpers";
 

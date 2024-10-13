@@ -1,4 +1,4 @@
-import { GameStatus, useGame } from "@laverve/fusion";
+import { GameStatus, useGame } from "pixi-fusion";
 import React, { createContext, PropsWithChildren, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { MazeGrid, MazePoint, MazeMoveDirection, MazeHero, MazeResource, MazePredator } from "./types";
 import { useBoardMeasures } from "./helpers/useBoardMeasures";

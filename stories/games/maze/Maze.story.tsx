@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 
-import { MazeGameProps, MazeGame, MazeGrid, MazePredator, MazeResource } from "@laverve/maze-game";
+import { MazeGameProps, MazeGame, MazeGrid, MazePredator, MazeResource } from "@laverve/games-maze";
 import { Card, CardBody, NextUIProvider } from "@nextui-org/react";
 
 import backgroundAsset from "../../static/assets/background.jpg";

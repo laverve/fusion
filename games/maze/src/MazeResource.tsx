@@ -1,5 +1,5 @@
 import React from "react";
-import { useSprite } from "@laverve/fusion";
+import { useSprite } from "pixi-fusion";
 import { RESOURCE_TEXTURE_ALIAS } from "./helpers";
 
 type MazeResourceProps = {

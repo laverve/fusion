@@ -11,7 +11,7 @@ import React, {
 import classnames from "classnames";
 import { v4 as uuid } from "uuid";
 import { parseToRgba, toHex } from "color2k";
-import { GameContext, GameStatus } from "@laverve/fusion";
+import { GameContext, GameStatus } from "pixi-fusion";
 import { WordSearchContext } from "./WordSearch.context";
 import { generatePath, generateSVGPath } from "./lib/path";
 import { WordSearchBoardCell } from "./types";

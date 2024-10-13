@@ -1,6 +1,6 @@
 [![Release Train](https://github.com/laverve/fusion/actions/workflows/main.yaml/badge.svg?branch=main)](https://github.com/laverve/fusion/actions/workflows/main.yaml)
 
-# @laverve/fusion - The lightweight Game Engine
+# pixi-fusion - The lightweight Game Engine
 
 This project aims to provide a frwmework for games built on top of [PixiJS](https://pixijs.com/) and [matter-js](https://brm.io/matter-js/).
 
@@ -9,7 +9,7 @@ It is designed to be used with [React](https://react.dev/) framework v18.2.0 or 
 # Installation
 
 ```
-npm i --save @laverve/fusion
+npm i --save pixi-fusion
 ```
 
 # Basic Usage Example

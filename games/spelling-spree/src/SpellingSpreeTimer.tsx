@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect } from "react";
 
 import { Timer, useTimer } from "@laverve/timer";
-import { useGame, GameStatus } from "@laverve/fusion";
+import { useGame, GameStatus } from "pixi-fusion";
 
 type TimerOptions = { seconds: number; minutes: number; timeLeftPercents: number };
 

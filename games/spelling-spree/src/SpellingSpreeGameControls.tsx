@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faArrowRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import classnames from "classnames";
 
-import { GameStatus, useGame } from "@laverve/fusion";
+import { GameStatus, useGame } from "pixi-fusion";
 
 export type SpellingSpreeGameControlsProps = {
     classNames?: string;

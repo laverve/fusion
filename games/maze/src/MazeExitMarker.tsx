@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useSprite } from "@laverve/fusion";
+import { useSprite } from "pixi-fusion";
 import { MazeContext } from "./Maze.context";
 import { EXIT_POINT_TEXTURE_TEXTURE_ALIAS } from "./helpers";
 

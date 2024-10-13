@@ -1,6 +1,6 @@
 import React from "react";
 import { PREDATOR_TEXTURE_ALIAS } from "./helpers";
-import { useSprite } from "@laverve/fusion";
+import { useSprite } from "pixi-fusion";
 
 type MazePredatorProps = {
     position: { x: number; y: number };

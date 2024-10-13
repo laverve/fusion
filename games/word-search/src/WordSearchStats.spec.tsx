@@ -6,7 +6,7 @@ import { describe, it, expect } from "@jest/globals";
 import React, { useContext, useState } from "react";
 
 import { render, fireEvent } from "@testing-library/react";
-import { GameContextProvider, GameContext } from "@laverve/fusion";
+import { GameContextProvider, GameContext } from "pixi-fusion";
 
 import { WordSearchContextProvider, WordSearchContext } from "./WordSearch.context";
 import { WordSearchStats, WordSearchStatsProps } from "./WordSearchStats";

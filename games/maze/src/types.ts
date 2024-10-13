@@ -1,4 +1,4 @@
-export const I18N_NAMESPACE = "@laverve/maze-game";
+export const I18N_NAMESPACE = "@laverve/games-maze";
 
 export type MazeAssetType =
     | "crossIntersection"

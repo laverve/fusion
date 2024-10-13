@@ -1,4 +1,4 @@
-export const I18N_NAMESPACE = "@laverve/spelling-spree-game";
+export const I18N_NAMESPACE = "@laverve/games-spelling-spree";
 export const BACKGROUND_TEXTURE_ALIAS = "background";
 export const HERO_TEXTURE_ALIAS = "hero";
 export const LETTER_BACKGROUND_ALIAS = "letter-background";

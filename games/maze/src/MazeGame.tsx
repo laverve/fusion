@@ -1,6 +1,6 @@
 import React from "react";
 
-import { GameContextProvider, GameContextProviderProps, World } from "@laverve/fusion";
+import { GameContextProvider, GameContextProviderProps, World } from "pixi-fusion";
 import { MazeContextValue, MazeContextProvider, MazeContextProviderProps } from "./Maze.context";
 import { MazeGameControls } from "./MazeGameControls";
 import { MazeStats } from "./MazeStats";

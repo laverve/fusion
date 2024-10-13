@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useTickerCallback, useTilingSprite, useWorld } from "@laverve/fusion";
+import { useTickerCallback, useTilingSprite, useWorld } from "pixi-fusion";
 import { BACKGROUND_TEXTURE_ALIAS } from "./helpers";
 
 type SpellingSpreeBoardProps = {

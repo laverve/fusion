@@ -32,7 +32,7 @@
 
 * The following workspace dependencies were updated
   * dependencies
-    * @laverve/fusion bumped from ^0.0.10 to ^1.0.0
+    * pixi-fusion bumped from ^0.0.10 to ^1.0.0
 
 ## [0.0.10](https://github.com/laverve/fusion/compare/maze-game-v3.0.0...maze-game-v0.0.10) (2024-10-13)
 
@@ -51,7 +51,7 @@
 
 * The following workspace dependencies were updated
   * dependencies
-    * @laverve/fusion bumped from ^3.0.1 to ^0.0.10
+    * pixi-fusion bumped from ^3.0.1 to ^0.0.10
 
 ## [3.0.0](https://github.com/laverve/fusion/compare/maze-game-v3.0.0...maze-game-v3.0.0) (2024-10-13)
 

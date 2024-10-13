@@ -6,7 +6,7 @@
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.6.0",
         "@fortawesome/react-fontawesome": "^0.2.2",
-        "@laverve/fusion": "^1.0.0",
+        "pixi-fusion": "^1.0.0",
         "@laverve/timer": "^3.1.1",
         "classnames": "^2.3.2",
         "i18next": "^23.15.1",
@@ -28,7 +28,7 @@
     ],
     "license": "MIT",
     "main": "./dist/src/index.js",
-    "name": "@laverve/maze-game",
+    "name": "@laverve/games-maze",
     "peerDependencies": {
         "@nextui-org/react": "^2.4.8",
         "react": "^18.2.0"

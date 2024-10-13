@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 
-import { World, GameContextProvider, GameContextProviderProps } from "@laverve/fusion";
+import { World, GameContextProvider, GameContextProviderProps } from "pixi-fusion";
 import {
     SpellingSpreeContextProvider,
     SpellingSpreeContextProviderProps,

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faArrowRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import classnames from "classnames";
 
-import { useGame, GameStatus } from "@laverve/fusion";
+import { useGame, GameStatus } from "pixi-fusion";
 
 export type WordSearchGameControlsProps = {
     classNames?: string;

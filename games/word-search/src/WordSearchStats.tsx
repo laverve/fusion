@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import classnames from "classnames";
 import { useTranslation } from "react-i18next";
 
-import { useGame } from "@laverve/fusion";
+import { useGame } from "pixi-fusion";
 import { WordSearchContext } from "./WordSearch.context";
 
 export type WordSearchStatsProps = { classNames?: string };

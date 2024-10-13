@@ -8,7 +8,7 @@ import React from "react";
 import snapshotDiff from "snapshot-diff";
 
 import { render, fireEvent, waitFor } from "@testing-library/react";
-import { GameContextProvider, useGame } from "@laverve/fusion";
+import { GameContextProvider, useGame } from "pixi-fusion";
 
 import { WordSearchContextProvider } from "./WordSearch.context";
 import { WordSearchBoard, WordSearchBoardProps } from "./WordSearchBoard";

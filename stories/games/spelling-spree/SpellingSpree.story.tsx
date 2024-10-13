@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 
-import { SpellingSpreeGame, SpellingSpreeGameProps } from "@laverve/spelling-spree-game";
+import { SpellingSpreeGame, SpellingSpreeGameProps } from "@laverve/games-spelling-spree";
 import { Card, CardBody } from "@nextui-org/react";
 
 export default {

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useMemo } from "react";
 
 import { v4 as uuidv4 } from "uuid";
 
-import { Layer, useAssetManager } from "@laverve/fusion";
+import { Layer, useAssetManager } from "pixi-fusion";
 import { MazeBoard } from "./MazeBoard";
 import { MazeHero } from "./MazeHero";
 import { MazeResource } from "./MazeResource";

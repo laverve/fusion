@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { MazeContext } from "./Maze.context";
-import { useSprite } from "@laverve/fusion";
+import { useSprite } from "pixi-fusion";
 
 export type MazeRoadTileProps = {
     texture: string;
