@@ -1,8 +1,8 @@
 {
-    ".": "3.0.0",
+    ".": "5.0.0",
     "fusion": "3.0.0",
-    "games/maze": "3.0.0",
-    "games/spelling-spree": "1.0.0",
-    "games/word-search": "4.2.2",
-    "storybook": "3.0.0"
+    "games/maze": "5.0.0",
+    "games/spelling-spree": "5.0.0",
+    "games/word-search": "5.0.0",
+    "storybook": "5.0.0"
 }
