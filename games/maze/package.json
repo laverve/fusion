@@ -6,7 +6,7 @@
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.6.0",
         "@fortawesome/react-fontawesome": "^0.2.2",
-        "@laverve/fusion": "^3.0.1",
+        "@laverve/fusion": "^0.0.10",
         "@laverve/timer": "^3.1.1",
         "classnames": "^2.3.2",
         "i18next": "^23.15.1",
@@ -49,6 +49,6 @@
     },
     "type": "module",
     "types": "./dist/src/index.d.ts",
-    "version": "3.0.0",
+    "version": "0.0.10",
     "webpack": "./src/index.tsx"
 }

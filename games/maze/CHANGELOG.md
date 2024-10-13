@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.0.10](https://github.com/laverve/fusion/compare/maze-game-v3.0.0...maze-game-v0.0.10) (2024-10-13)
+
+
+### Bug Fixes
+
+* switch to fusion 3.0.1 ([391535b](https://github.com/laverve/fusion/commit/391535b33683f4c0f418fd201b8a4e87ad065044))
+
+
+### Miscellaneous Chores
+
+* release 0.0.10 ([bd91141](https://github.com/laverve/fusion/commit/bd91141158bc1b90cd36315691163b22c681816b))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @laverve/fusion bumped from ^3.0.1 to ^0.0.10
+
 ## [3.0.0](https://github.com/laverve/fusion/compare/maze-game-v3.0.0...maze-game-v3.0.0) (2024-10-13)
 
 
