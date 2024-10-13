@@ -9,7 +9,7 @@ runs:
   using: "composite"
   steps:
     - run: |
-          [ -d .ghpages-artifact ] || mkdir .ghpages-artifact,
+          [ -d .ghpages-artifact ] || mkdir .ghpages-artifact
       shell: bash
     - run: NODE_ENV=${{ inputs.NODE_ENV }} npm run build
       shell: bash
