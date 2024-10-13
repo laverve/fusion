@@ -3,32 +3,32 @@ import React, { useMemo } from "react";
 import { MazeGameProps, MazeGame, MazeGrid, MazePredator, MazeResource } from "@laverve/maze-game";
 import { Card, CardBody, NextUIProvider } from "@nextui-org/react";
 
-import backgroundAsset from "../../../static/assets/background.jpg";
+import backgroundAsset from "../../static/assets/background.jpg";
 
-import roadTileAssetVertical from "../../../static/assets/tile-v.png";
-import roadTileAssetHorizontal from "../../../static/assets/tile-h.png";
+import roadTileAssetVertical from "../../static/assets/tile-v.png";
+import roadTileAssetHorizontal from "../../static/assets/tile-h.png";
 
-import roadTileAssetTopLeftCorner from "../../../static/assets/tile-c-t-l.png";
-import roadTileAssetTopRightCorner from "../../../static/assets/tile-c-t-r.png";
-import roadTileAssetBottomRightCorner from "../../../static/assets/tile-c-b-r.png";
-import roadTileAssetBottomLeftCorner from "../../../static/assets/tile-c-b-l.png";
+import roadTileAssetTopLeftCorner from "../../static/assets/tile-c-t-l.png";
+import roadTileAssetTopRightCorner from "../../static/assets/tile-c-t-r.png";
+import roadTileAssetBottomRightCorner from "../../static/assets/tile-c-b-r.png";
+import roadTileAssetBottomLeftCorner from "../../static/assets/tile-c-b-l.png";
 
-import roadTileAssetTIntersectionR from "../../../static/assets/tile-t-r.png";
-import roadTileAssetTIntersectionL from "../../../static/assets/tile-t-l.png";
-import roadTileAssetTIntersectionT from "../../../static/assets/tile-t-t.png";
-import roadTileAssetTIntersectionB from "../../../static/assets/tile-t-b.png";
-import roadTileAsset4Intersection from "../../../static/assets/tile-4-i.png";
+import roadTileAssetTIntersectionR from "../../static/assets/tile-t-r.png";
+import roadTileAssetTIntersectionL from "../../static/assets/tile-t-l.png";
+import roadTileAssetTIntersectionT from "../../static/assets/tile-t-t.png";
+import roadTileAssetTIntersectionB from "../../static/assets/tile-t-b.png";
+import roadTileAsset4Intersection from "../../static/assets/tile-4-i.png";
 
-import roadTileAssetEndBottom from "../../../static/assets/tile-e-b.png";
-import roadTileAssetEndTop from "../../../static/assets/tile-e-t.png";
-import roadTileAssetEndRight from "../../../static/assets/tile-e-r.png";
-import roadTileAssetEndLeft from "../../../static/assets/tile-e-l.png";
+import roadTileAssetEndBottom from "../../static/assets/tile-e-b.png";
+import roadTileAssetEndTop from "../../static/assets/tile-e-t.png";
+import roadTileAssetEndRight from "../../static/assets/tile-e-r.png";
+import roadTileAssetEndLeft from "../../static/assets/tile-e-l.png";
 
-import exitAsset from "../../../static/assets/tile-exit.png";
+import exitAsset from "../../static/assets/tile-exit.png";
 
-import gasAsset from "../../../static/assets/gas.png";
-import heroAsset from "../../../static/assets/hero.png";
-import policeOfficerAsset from "../../../static/assets/police-offices.png";
+import gasAsset from "../../static/assets/gas.png";
+import heroAsset from "../../static/assets/hero.png";
+import policeOfficerAsset from "../../static/assets/police-offices.png";
 
 import "../../css/app.css";
 

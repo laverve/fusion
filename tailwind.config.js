@@ -83,7 +83,7 @@ export default {
     content: [
         `${nextUIThemeModulePath}/**/*.{js,ts,jsx,tsx}`,
         "./stories/**/*.{js,ts,jsx,tsx}",
-        "../games/**/src/**/*.{js,ts,jsx,tsx}"
+        "./games/**/src/**/*.{js,ts,jsx,tsx}"
     ],
     safelist: [
         {
