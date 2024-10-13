@@ -10,8 +10,7 @@
         },
         "fusion": {
             "changelog-path": "CHANGELOG.md",
-            "release-type": "node",
-            "separate-pull-requests": true
+            "release-type": "node"
         },
         "games/maze": {
             "changelog-path": "CHANGELOG.md",
