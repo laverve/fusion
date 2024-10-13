@@ -25,7 +25,6 @@ const MARGIN_LEFT = -120;
 const LETTER_WIDTH = 30;
 const MAX_SPACE_BETWEEN_LETTERS = 300;
 const SPACE_BETWEEN_WORDS = 300;
-
 const DEFAULT_SPEED = -1;
 
 export const SpellingSpreeScene: React.FC = () => {
