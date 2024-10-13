@@ -54,6 +54,6 @@
         "test": "jest --passWithNoTests"
     },
     "types": "./dist/src/index.d.ts",
-    "version": "4.2.2",
+    "version": "3.0.0",
     "webpack": "./src/index.tsx"
 }
