@@ -1,19 +1,11 @@
 import React, { useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { DisplayObjectType, GameStatus, useDisplayObject, useGame, useGlobalEventHandler } from "@laverve/fusion";
+import { GameStatus, useGame, useGlobalEventHandler, useSprite } from "@laverve/fusion";
 import { MazeContext } from "./Maze.context";
+import { HERO_TEXTURE_ALIAS } from "./helpers";
 
 export const MazeHero: React.FC = () => {
     const { tileSize, padding, tileAspectRatio, grid, move, hero } = useContext(MazeContext);
     const { status } = useGame();
-    const heroDisplayObjectConfig = useMemo(
-        () => ({
-            type: DisplayObjectType.SPRITE,
-            asset: { src: hero.asset, alias: "hero" },
-            anchor: { x: 0.5, y: 0.5 },
-            scale: { x: tileAspectRatio, y: tileAspectRatio }
-        }),
-        [hero.asset]
-    );
 
     const heroPosition = useMemo(() => {
         const x = padding.x + hero.location.x * tileSize.width + tileSize.width / 2;
@@ -22,6 +14,14 @@ export const MazeHero: React.FC = () => {
     }, [hero.location, padding, tileSize]);
 
     const [direction, setDirection] = useState<number | null>(null);
+
+    useSprite({
+        angle: direction || 0,
+        texture: HERO_TEXTURE_ALIAS,
+        anchor: { x: 0.5, y: 0.5 },
+        scale: { x: tileAspectRatio, y: tileAspectRatio },
+        position: heroPosition
+    });
 
     useEffect(() => {
         if (direction !== null) {
@@ -44,12 +44,6 @@ export const MazeHero: React.FC = () => {
             setDirection(0);
         }
     }, [hero.location, grid, direction]);
-
-    useDisplayObject({
-        ...heroDisplayObjectConfig,
-        position: heroPosition,
-        angle: direction || 0
-    });
 
     const onKeyDown = useCallback(
         (e: KeyboardEvent) => {

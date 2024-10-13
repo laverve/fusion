@@ -8,7 +8,7 @@ export default {
     argTypes: {}
 };
 
-import "@laverve/design-provider/global.css";
+import "../../css/app.css";
 
 export const SpellingSpree = ({ timeout }: SpellingSpreeGameProps): JSX.Element => {
     const words = useMemo(() => ["dog", "cat", "doc", "tree"], []);

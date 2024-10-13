@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Button } from "@nextui-org/react";
 import { useTranslation } from "react-i18next";
-import { Typography } from "@laverve/design-provider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faArrowRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import classnames from "classnames";
@@ -56,32 +55,26 @@ export const SpellingSpreeGameControls: React.FC<SpellingSpreeGameControlsProps>
                 <div className="pt-5 pb-5">
                     {status === GameStatus.COMPLETED && (
                         <>
-                            <Typography variant="heading-2" className="text-center mb-3">
+                            <h2 className="heading-2 text-center mb-3">
                                 {t("controls.kudos.title")}
                                 <br />
                                 {t("controls.kudos.subtitle")}
-                            </Typography>
-                            <Typography variant="body-1" className="text-center">
-                                {t("controls.kudos.motivationalMessage")}
-                            </Typography>
+                            </h2>
+                            <div className="body-1 text-center">{t("controls.kudos.motivationalMessage")}</div>
                         </>
                     )}
                     {status === GameStatus.TIMEDOUT && (
                         <>
-                            <Typography variant="heading-2" className="text-center mb-3">
-                                {t("controls.timesup.title")}
-                            </Typography>
-                            <Typography variant="body-1" className="text-center">
+                            <h2 className="heading-2 text-center mb-3">{t("controls.timesup.title")}</h2>
+                            <div className="body-1 text-center">
                                 {t("controls.timesup.subtitle")}
                                 <br />
                                 {t("controls.timesup.motivationalMessage")}
-                            </Typography>
+                            </div>
                         </>
                     )}
                     <div className="flex flex-col mt-3 mb-3">
-                        <Typography variant="heading-4" className="text-center mb-3">
-                            {t("controls.stats.title")}
-                        </Typography>
+                        <h4 className="heading-4 text-center mb-3">{t("controls.stats.title")}</h4>
                         {statsSlot}
                     </div>
                 </div>

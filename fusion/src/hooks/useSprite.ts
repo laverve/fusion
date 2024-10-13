@@ -2,7 +2,7 @@ import { useMemo } from "react";
 
 import { Sprite, SpriteOptions } from "pixi.js";
 import { useTextures } from "./useTexture";
-import { useObject } from "../game-objects/useObject";
+import { useObject } from "./useObject";
 
 type UseSpriteOptions = Omit<SpriteOptions, "texture"> & {
     texture: string;
@@ -25,7 +25,7 @@ export const useSprite = ({ texture = "", ...options }: UseSpriteOptions) => {
         }
 
         return new Sprite({});
-    }, [texture, frames]);
+    }, [texture, frames, isFetched]);
 
     useObject({ object: sprite, ...options });
 

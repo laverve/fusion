@@ -8,7 +8,7 @@ export const useTextures = ({ keys = [] }: { keys?: string[] }) => {
 
     const textures = useMemo(() => {
         return isFetched ? keys.map((key) => getAsset(key) as Texture) : [];
-    }, [keys]);
+    }, [keys, isFetched, isFetching, isError]);
 
     return useMemo(
         () => ({

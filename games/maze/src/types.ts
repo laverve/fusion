@@ -2,6 +2,7 @@ export const I18N_NAMESPACE = "@laverve/maze-game";
 
 export type MazeAssetType =
     | "crossIntersection"
+    | "hero"
     | "tIntersectionRight"
     | "tIntersectionLeft"
     | "tIntersectionTop"
@@ -17,15 +18,16 @@ export type MazeAssetType =
     | "closureTop"
     | "closureBottom"
     | "exitPoint"
+    | "resource"
+    | "predator"
     | "background";
 
-export type MazeAssets = Partial<Record<MazeAssetType, string>>;
+export type MazeAssets = Record<MazeAssetType, string>;
 
 export type MazeMoveDirection = "up" | "down" | "right" | "left";
 export type MazePoint = { x: number; y: number };
 export type MazeObject = {
     location: MazePoint;
-    asset: string;
 };
 
 export type MazeGridCell = 0 | 1;

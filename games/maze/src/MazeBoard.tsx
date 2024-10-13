@@ -1,22 +1,12 @@
-import React, { useMemo } from "react";
-import { DisplayObjectType, GameObjectDisplayObjectConfig, useDisplayObject } from "@laverve/fusion";
-import { MazeAssets } from "./types";
+import React from "react";
+import { useSprite } from "@laverve/fusion";
+import { BACKGROUND_TEXTURE_ALIAS } from "./helpers";
 
-export type MazeBoardProps = {
-    assets: MazeAssets;
-};
-
-export const MazeBoard: React.FC<MazeBoardProps> = ({ assets }: MazeBoardProps) => {
-    const background: GameObjectDisplayObjectConfig = useMemo(
-        () => ({
-            position: { x: 400, y: 300 },
-            type: DisplayObjectType.SPRITE,
-            anchor: { x: 0.5, y: 0.5 },
-            asset: { alias: "background", src: assets.background || "" }
-        }),
-        []
-    );
-
-    useDisplayObject(background);
+export const MazeBoard: React.FC = () => {
+    useSprite({
+        position: { x: 400, y: 300 },
+        anchor: { x: 0.5, y: 0.5 },
+        texture: BACKGROUND_TEXTURE_ALIAS
+    });
     return null;
 };

@@ -54,7 +54,10 @@ const ASSETS = {
     closureTop: roadTileAssetEndTop,
     closureBottom: roadTileAssetEndBottom,
     exitPoint: exitAsset,
-    background: backgroundAsset
+    background: backgroundAsset,
+    hero: heroAsset,
+    resource: gasAsset,
+    predator: policeOfficerAsset
 };
 
 const MIN_PADDING = 10;
@@ -97,12 +100,10 @@ export const MazeStory = ({ timeout }: MazeGameProps): JSX.Element => {
     const predators = useMemo<MazePredator[]>(
         () => [
             {
-                asset: policeOfficerAsset,
                 location: { x: 7, y: 0 },
                 trajectory: ["left", "down", "down", "down", "down", "right", "right", "up", "up", "up", "down", "left"]
             },
             {
-                asset: policeOfficerAsset,
                 location: { x: 0, y: 2 },
                 trajectory: ["right", "right", "right", "left", "left", "left"]
             }
@@ -126,16 +127,15 @@ export const MazeStory = ({ timeout }: MazeGameProps): JSX.Element => {
                         resources={resources}
                         predators={predators}
                         exitPoint={exitPoint}
-                        hero={{ location: { x: 1, y: 0 }, asset: heroAsset }}
+                        hero={{ location: { x: 1, y: 0 } }}
                         grid={grid}
                         timeout={timeout}
                         sidebarConfig={{ layoutVariant: "vertical" }}
-                        boardConfig={{
-                            ...boardSize,
-                            tileSize,
-                            assets: ASSETS,
-                            minPadding: MIN_PADDING
-                        }}
+                        tileSize={tileSize}
+                        assets={ASSETS}
+                        minPadding={MIN_PADDING}
+                        width={boardSize.width}
+                        height={boardSize.height}
                     />
                 </CardBody>
             </Card>

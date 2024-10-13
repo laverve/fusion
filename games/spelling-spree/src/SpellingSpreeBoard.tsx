@@ -10,14 +10,12 @@ export const SpellingSpreeBoard: React.FC<SpellingSpreeBoardProps> = ({ isEnable
     const { size } = useWorld();
     const [tilePosition, setTilePosition] = useState({ x: 0, y: 0 });
 
-    const s = useTilingSprite({
+    useTilingSprite({
         texture: BACKGROUND_TEXTURE_ALIAS,
         anchor: { x: 0.5, y: 0.5 },
         width: size.width,
         tilePosition
     });
-
-    console.dir(s);
 
     useTickerCallback({
         isEnabled: isEnabled,

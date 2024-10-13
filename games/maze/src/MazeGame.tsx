@@ -1,41 +1,37 @@
 import React from "react";
 
-import { GameContextProvider, GameContextProviderProps, Layer, World } from "@laverve/fusion";
+import { GameContextProvider, GameContextProviderProps, World } from "@laverve/fusion";
 import { MazeContextValue, MazeContextProvider, MazeContextProviderProps } from "./Maze.context";
-import { MazeBoard, MazeBoardProps } from "./MazeBoard";
-import { MazeHero } from "./MazeHero";
-import { MazeResources } from "./MazeResources";
-import { MazePredators } from "./MazePredators";
 import { MazeGameControls } from "./MazeGameControls";
 import { MazeStats } from "./MazeStats";
 import { MazeSidebar } from "./MazeSidebar";
 import { Layout, LayoutProps } from "./Layout";
-import { MazeRoad } from "./MazeRoad";
+import { MazeScene, MazeSceneProps } from "./MazeScene";
 
 export type MazeGameProps = {
     events?: MazeContextProviderProps["events"] & GameContextProviderProps["events"];
     timeout?: number;
-    boardConfig?: Partial<Pick<LayoutProps["boardConfig"], "width" | "height">> &
-        Pick<MazeBoardProps, "assets"> &
-        Pick<MazeContextProviderProps, "tileSize" | "minPadding">;
+    assets: MazeSceneProps["assets"];
+    tileSize?: { width: number; height: number };
+    minPadding?: number;
+    width?: number;
+    height?: number;
     sidebarConfig?: Pick<LayoutProps["sidebarConfig"], "placement" | "layoutVariant">;
 } & Pick<MazeContextValue, "grid" | "exitPoint" | "resources" | "hero" | "predators">;
 
 export const MazeGame: React.FC<MazeGameProps> = ({
     events,
+    assets,
     grid,
     exitPoint,
     hero,
     resources,
     predators,
     timeout = 0,
-    boardConfig: {
-        minPadding = 10,
-        width: boardWidth = 300,
-        height: boardHeight = 300,
-        assets = {},
-        tileSize = { width: 10, height: 10 }
-    } = {},
+    minPadding = 10,
+    width: boardWidth = 300,
+    height: boardHeight = 300,
+    tileSize = { width: 10, height: 10 },
     sidebarConfig = {}
 }) => {
     return (
@@ -64,17 +60,7 @@ export const MazeGame: React.FC<MazeGameProps> = ({
                         children: (
                             <>
                                 <World eventMode="dynamic">
-                                    <Layer>
-                                        <MazeBoard assets={assets} />
-                                    </Layer>
-                                    <Layer>
-                                        <MazeRoad assets={assets} />
-                                    </Layer>
-                                    <Layer>
-                                        <MazeResources />
-                                        <MazePredators />
-                                        <MazeHero />
-                                    </Layer>
+                                    <MazeScene assets={assets} />
                                 </World>
                                 <MazeGameControls statsSlot={<MazeStats />} />
                             </>

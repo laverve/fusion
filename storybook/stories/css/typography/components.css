@@ -1,27 +1,27 @@
 .heading-1 {
-  @apply font-shantell-sans text-secondary-200 text-2xl font-bold md:text-3xl;
+    @apply text-secondary-200 text-2xl font-bold md:text-3xl;
 }
 
 .heading-2 {
-  @apply font-shantell-sans text-secondary-200 text-xl font-bold md:text-2xl;
+    @apply text-secondary-200 text-xl font-bold md:text-2xl;
 }
 
 .heading-3 {
-  @apply font-shantell-sans text-secondary-200 text-lg font-bold md:text-xl;
+    @apply text-secondary-200 text-lg font-bold md:text-xl;
 }
 
 .heading-4 {
-  @apply font-shantell-sans text-secondary-200 text-base font-bold md:text-lg;
+    @apply text-secondary-200 text-base font-bold md:text-lg;
 }
 
 .body-1 {
-  @apply font-primary text-sm md:text-base;
+    @apply font-primary text-sm md:text-base;
 }
 
 .body-2 {
-  @apply font-primary text-xs md:text-sm;
+    @apply font-primary text-xs md:text-sm;
 }
 
 .body-3 {
-  @apply font-primary text-xs md:text-xs;
+    @apply font-primary text-xs md:text-xs;
 }

@@ -1,53 +1,69 @@
-import { MazeAssets } from "../types";
+import {
+    CROSS_INTERSECTION_TEXTURE_ALIAS,
+    HORIZONTAL_ROAD_TEXTURE_ALIAS,
+    ROAD_BOTTOM_RIGHT_CORNER_TEXTURE_ALIAS,
+    T_INTERSECTION_BOTTOM_TEXTURE_ALIAS,
+    T_INTERSECTION_LEFT_TEXTURE_ALIAS,
+    T_INTERSECTION_RIGHT_TEXTURE_ALIAS,
+    T_INTERSECTION_TOP_TEXTURE_ALIAS,
+    ROAD_TOP_LEFT_CORNER_TEXTURE_ALIAS,
+    ROAD_TOP_RIGHT_CORNER_TEXTURE_ALIAS,
+    VERTICAL_ROAD_TEXTURE_ALIAS,
+    ROAD_BOTTOM_LEFT_CORNER_TEXTURE_ALIAS,
+    ROAD_CLOSURE_RIGHT_TEXTURE_ALIAS,
+    ROAD_CLOSURE_TOP_TEXTURE_ALIAS,
+    ROAD_CLOSURE_LEFT_TEXTURE_ALIAS,
+    ROAD_CLOSURE_BOTTOM_TEXTURE_ALIAS
+} from "../helpers";
 
-export const getCellAsset = (assets: MazeAssets, c: number, t: number, r: number, b: number, l: number) => {
+export const getCellAsset = (c: number, t: number, r: number, b: number, l: number) => {
     if (!c) {
         return null;
     }
     if (t && r && l && b) {
-        return assets.crossIntersection || null;
+        return CROSS_INTERSECTION_TEXTURE_ALIAS || null;
     }
     if (r && t && b && !l) {
-        return assets.tIntersectionRight || null;
+        return T_INTERSECTION_RIGHT_TEXTURE_ALIAS || null;
     }
     if (l && t && b && !r) {
-        return assets.tIntersectionLeft || null;
+        return T_INTERSECTION_LEFT_TEXTURE_ALIAS || null;
     }
     if (l && t && !b && r) {
-        return assets.tIntersectionTop || null;
+        return T_INTERSECTION_TOP_TEXTURE_ALIAS || null;
     }
     if (l && !t && b && r) {
-        return assets.tIntersectionBottom || null;
+        return T_INTERSECTION_BOTTOM_TEXTURE_ALIAS || null;
     }
     if (t && b && !l && !r) {
-        return assets.vertical || null;
+        return VERTICAL_ROAD_TEXTURE_ALIAS || null;
     }
     if (l && r && !t && !b) {
-        return assets.horizontal || null;
+        return HORIZONTAL_ROAD_TEXTURE_ALIAS || null;
     }
     if (l && b && !t && !r) {
-        return assets.topRightCorner;
+        return ROAD_TOP_RIGHT_CORNER_TEXTURE_ALIAS;
     }
     if (r && b && !t && !l) {
-        return assets.topLeftCorner;
+        return ROAD_TOP_LEFT_CORNER_TEXTURE_ALIAS;
     }
     if (l && t && !b && !r) {
-        return assets.bottomRightCorner;
+        return ROAD_BOTTOM_RIGHT_CORNER_TEXTURE_ALIAS;
     }
     if (r && t && !b && !l) {
-        return assets.bottomLeftCorner;
+        return ROAD_BOTTOM_LEFT_CORNER_TEXTURE_ALIAS;
     }
     if (r) {
-        return assets.closureRight;
+        return ROAD_CLOSURE_RIGHT_TEXTURE_ALIAS;
     }
     if (t) {
-        return assets.closureTop;
+        return ROAD_CLOSURE_TOP_TEXTURE_ALIAS;
     }
     if (l) {
-        return assets.closureLeft;
+        return ROAD_CLOSURE_LEFT_TEXTURE_ALIAS;
     }
     if (b) {
-        return assets.closureBottom;
+        return ROAD_CLOSURE_BOTTOM_TEXTURE_ALIAS;
     }
     return null;
 };

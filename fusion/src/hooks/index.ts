@@ -1,6 +1,5 @@
 export * from "./useGlobalEventHandler";
 export * from "./useStage";
-export * from "./useEventHandler";
 export * from "./useTickerCallback";
 export * from "./useWorld";
 export * from "./useLayerContext";

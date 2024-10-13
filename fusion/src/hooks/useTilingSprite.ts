@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 
 import { TilingSpriteOptions, TilingSprite } from "pixi.js";
 import { useTextures } from "./useTexture";
-import { useObject } from "../game-objects/useObject";
+import { useObject } from "./useObject";
 
 type UseTilingSpriteOptions = Omit<TilingSpriteOptions, "texture"> & {
     texture: string;

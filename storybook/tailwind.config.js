@@ -96,11 +96,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                primary: defaultTheme.fontFamily.sans,
-                "zero-cool": ["ZeroCool", "Arial"],
-                caveat: ["Caveat", "Arial"],
-                "shantell-sans": ["ShantellSans"],
-                "shantell-sans-italic": ["ShantellSansItalic"]
+                primary: defaultTheme.fontFamily.sans
             },
             colors: {
                 ...COLOR_PALETTE

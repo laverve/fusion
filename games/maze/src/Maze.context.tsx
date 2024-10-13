@@ -31,7 +31,7 @@ export const MazeContext = createContext<MazeContextValue>({
     reset: () => {},
     exitPoint: { x: 0, y: 0 },
     grid: [],
-    hero: { location: { x: 0, y: 0 }, asset: "" },
+    hero: { location: { x: 0, y: 0 } },
     resources: [],
     predators: [],
     tileAspectRatio: 1,

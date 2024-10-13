@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 
 import { AnimatedSprite, AnimatedSpriteOptions, Spritesheet, SpritesheetData } from "pixi.js";
 import { useTextures } from "./useTexture";
-import { useObject } from "../game-objects/useObject";
+import { useObject } from "./useObject";
 
 type UseAnimatedSpriteOptions = Omit<AnimatedSpriteOptions, "textures" | "texture"> & {
     texture: string;
@@ -34,8 +34,6 @@ export const useAnimatedSprite = ({
         }
         return null;
     }, [spritesheetJSON]);
-
-    // console.dir(spritesheet?.animations?.[animation]);
 
     const sprite = useMemo(() => {
         if (spritesheet?.animations?.[animation]) {
