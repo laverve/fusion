@@ -12,6 +12,7 @@ export const usePhysicalObjectFromConfig = <PhysicalObjectType extends Nullable<
         if (physicalObjectConfig) {
             return Body.create({ position, ...physicalObjectConfig });
         }
+
         return null;
     }, []) as PhysicalObjectType;
 
