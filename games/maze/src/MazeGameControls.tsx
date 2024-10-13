@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Button } from "@nextui-org/react";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faArrowRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import classnames from "classnames";
 
-import { GameContext, GameStatus } from "@laverve/fusion";
+import { GameStatus, useGame } from "@laverve/fusion";
 import { I18N_NAMESPACE } from "./types";
 
 export type MazeGameControlsProps = {
@@ -15,7 +15,7 @@ export type MazeGameControlsProps = {
 
 export const MazeGameControls: React.FC<MazeGameControlsProps> = ({ statsSlot, classNames }: MazeGameControlsProps) => {
     const { t } = useTranslation(I18N_NAMESPACE);
-    const { start, status } = useContext(GameContext);
+    const { start, status } = useGame();
 
     const wrap = (children: React.ReactNode, isGameOver: boolean = false) => {
         return (

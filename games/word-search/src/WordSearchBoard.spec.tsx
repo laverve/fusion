@@ -3,12 +3,12 @@
  */
 
 import { describe, it, expect } from "@jest/globals";
-import React, { useContext } from "react";
+import React from "react";
 
 import snapshotDiff from "snapshot-diff";
 
 import { render, fireEvent, waitFor } from "@testing-library/react";
-import { GameContextProvider, GameContext } from "@laverve/fusion";
+import { GameContextProvider, useGame } from "@laverve/fusion";
 
 import { WordSearchContextProvider } from "./WordSearch.context";
 import { WordSearchBoard, WordSearchBoardProps } from "./WordSearchBoard";
@@ -16,7 +16,7 @@ import { WordSearchBoard, WordSearchBoardProps } from "./WordSearchBoard";
 let stopSpy: jest.SpyInstance;
 
 export const TestGameplay: React.FC = () => {
-    const context = useContext(GameContext);
+    const context = useGame();
     stopSpy = jest.spyOn(context, "stop");
     stopSpy.mockImplementationOnce(() => {});
 

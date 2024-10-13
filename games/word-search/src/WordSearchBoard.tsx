@@ -2,7 +2,7 @@ import React, { useState, TouchEvent, MouseEvent, useContext, useEffect, useRef,
 import classnames from "classnames";
 import { v4 as uuid } from "uuid";
 import { parseToRgba, toHex } from "color2k";
-import { GameContext, GameStatus } from "@laverve/fusion";
+import { useGame, GameStatus } from "@laverve/fusion";
 import { WordSearchContext } from "./WordSearch.context";
 import { generatePath } from "./lib/path";
 
@@ -18,7 +18,7 @@ export const WordSearchBoard: React.FC<WordSearchBoardProps> = ({
     classNames = { container: "", cell: "" }
 }: WordSearchBoardProps) => {
     const { foundWords, onWordFound, grid, gridCells, words, selectedWordsColors } = useContext(WordSearchContext);
-    const { status } = useContext(GameContext);
+    const { status } = useGame();
 
     const lowerCasedWords = useMemo(() => words.map((w) => w.toLowerCase()), [words]);
     const lowerCasedFoundWords = useMemo(() => foundWords.map((w) => w.toLowerCase()), [foundWords]);

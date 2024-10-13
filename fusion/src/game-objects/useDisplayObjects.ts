@@ -1,11 +1,11 @@
-import { useEffect, useContext, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 import { Sprite, ViewContainer } from "pixi.js";
-import { StageContext } from "../stage/Stage.context";
 import { GameObjectDisaplyObjectAsset, GameObjectDisplayObjectConfig } from "./GameObjectDisplayObjectConfig";
 import { displayObjectFactory } from "./displayObjectFactory";
 import { Nullable } from "../types";
-import { useAssets } from "../assets";
+import { useAssets } from "../assets-manager";
+import { useLayerContext } from "../hooks/useLayerContext";
 
 export type UseDisplayObjectsFromConfigOptions = {
     objects: GameObjectDisplayObjectConfig[];
@@ -14,20 +14,22 @@ export type UseDisplayObjectsFromConfigOptions = {
 export const useDisplayObjects = <DisplayObjectType extends Nullable<ViewContainer> = Sprite>({
     objects
 }: UseDisplayObjectsFromConfigOptions) => {
-    const { addObject, removeObject } = useContext(StageContext);
+    const { addObject, removeObject } = useLayerContext();
 
     const assetsToLoad = useMemo(() => {
-        return objects.map(({ asset }) => asset).filter((a) => a) as GameObjectDisaplyObjectAsset[];
+        return objects
+            .map(({ asset }) => asset)
+            .filter((a) => a && !!a.src) as Required<GameObjectDisaplyObjectAsset>[];
     }, [objects]);
 
-    const { isError, isFetched, isFetching, assets } = useAssets({ assets: assetsToLoad });
+    const { isError, isFetched, isFetching, get } = useAssets({ assets: assetsToLoad });
 
     const displayObjects = useMemo(() => {
         if (isFetching || !isFetched || isError) {
             return { objects: [], allObjects: [] };
         }
         const allObjects = objects.map((displayObjectConfig) =>
-            displayObjectFactory<DisplayObjectType>(displayObjectConfig, assets[displayObjectConfig.asset?.alias ?? ""])
+            displayObjectFactory<DisplayObjectType>(displayObjectConfig, get(displayObjectConfig.asset?.alias ?? ""))
         );
         return { objects: allObjects };
     }, [isFetched, isFetching]);

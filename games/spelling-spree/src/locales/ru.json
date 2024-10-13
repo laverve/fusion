@@ -1,0 +1,24 @@
+{
+    "controls": {
+        "kudos": {
+            "motivationalMessage": "Продолжай тренироватся, чтобы стать еще лучше!",
+            "subtitle": "Головоломка решена!",
+            "title": "Поздавляю!"
+        },
+        "playAgainButton": "Играть еще",
+        "startButton": "Старт",
+        "stats": {
+            "amountOfMistakes": "Количество ошибок",
+            "amountOfWords": "Количество слов:",
+            "minutes": "мин.",
+            "seconds": "сек.",
+            "timeSpent": "Потрачено времени:",
+            "title": "Тови достижения"
+        },
+        "timesup": {
+            "motivationalMessage": "Попробуй еще раз и продолжай совершенствоваться!",
+            "subtitle": "Не переживай, практика это путь к совершенству.",
+            "title": "Время вишло!"
+        }
+    }
+}

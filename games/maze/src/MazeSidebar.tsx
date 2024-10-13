@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 
-import { GameContext, GameStatus } from "@laverve/fusion";
+import { GameStatus, useGame } from "@laverve/fusion";
 import { Timer, useTimer } from "@laverve/timer";
 
 export const MazeSidebar: React.FC = () => {
-    const { status, timeout } = useContext(GameContext);
+    const { status, timeout } = useGame();
 
     const { seconds, timeLeftPercents, minutes } = useTimer({
         type: timeout === 0 ? "countup" : "countdown",

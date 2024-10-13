@@ -43,7 +43,8 @@
         "lint": "eslint .",
         "lint:staged": "lint-staged",
         "test": "jest --passWithNoTests",
-        "build": "tsc"
+        "build": "rimraf dist/ && tsc",
+        "build:dev": "tsc -w"
     },
     "version": "3.0.0",
     "webpack": "./src/index.tsx"

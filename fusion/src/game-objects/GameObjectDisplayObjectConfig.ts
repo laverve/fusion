@@ -3,7 +3,12 @@ import { DisplayObjectType } from "./DisplayObjectType";
 
 export type GameObjectDisaplyObjectAsset = {
     alias: string;
-    src: string;
+    src?: string;
+};
+
+export type GameObjectDisaplyObjectFrame = {
+    alias: string;
+    src?: string;
 };
 
 export type GameObjectDisplayObjectConfig = {
@@ -18,4 +23,5 @@ export type GameObjectDisplayObjectConfig = {
     scale?: { x: number; y: number };
     anchor?: { x: number; y: number };
     asset?: GameObjectDisaplyObjectAsset;
+    frames?: GameObjectDisaplyObjectFrame;
 };

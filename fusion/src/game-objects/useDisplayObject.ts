@@ -1,39 +1,40 @@
-import { useEffect, useContext, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 import { Sprite, ViewContainer } from "pixi.js";
-import { StageContext } from "../stage/Stage.context";
 import { GameObjectDisplayObjectConfig } from "./GameObjectDisplayObjectConfig";
 import { displayObjectFactory } from "./displayObjectFactory";
 import { Nullable } from "../types";
-import { useAssets } from "../assets";
+import { useAssets } from "../assets-manager";
+import { useLayerContext } from "../hooks/useLayerContext";
 
 export const useDisplayObject = <DisplayObjectType extends Nullable<ViewContainer> = Sprite>(
     gameObjectDisplayObject: GameObjectDisplayObjectConfig | null
 ) => {
-    const { addObject, removeObject } = useContext(StageContext);
+    const { addObject, removeObject } = useLayerContext();
 
     const assetsToLoad = useMemo(() => {
-        return gameObjectDisplayObject?.asset ? [gameObjectDisplayObject?.asset] : [];
+        return gameObjectDisplayObject?.asset && gameObjectDisplayObject?.asset.src
+            ? [gameObjectDisplayObject?.asset]
+            : [];
     }, [gameObjectDisplayObject?.asset]);
 
-    const { isFetching, isFetched, assets } = useAssets({
+    const { isFetching, isFetched, get } = useAssets({
         assets: assetsToLoad
     });
-
-    const asset = useMemo(() => {
-        return assets[gameObjectDisplayObject?.asset?.alias ?? ""];
-    }, [assets]);
 
     const displayObject = useMemo(
         () =>
             gameObjectDisplayObject && isFetched && !isFetching
-                ? displayObjectFactory<DisplayObjectType>(gameObjectDisplayObject, asset)
+                ? displayObjectFactory<DisplayObjectType>(
+                      gameObjectDisplayObject,
+                      get(gameObjectDisplayObject?.asset?.alias ?? "")
+                  )
                 : null,
-        [asset, isFetched, isFetching]
+        [isFetched, isFetching]
     );
 
     useEffect(() => {
-        if (!displayObject || !asset) {
+        if (!displayObject || isFetching) {
             return () => {};
         }
 
@@ -42,7 +43,7 @@ export const useDisplayObject = <DisplayObjectType extends Nullable<ViewContaine
         return () => {
             removeObject(displayObject);
         };
-    }, [displayObject, asset]);
+    }, [displayObject, isFetching]);
 
     useEffect(() => {
         if (!displayObject) {

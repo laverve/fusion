@@ -1,0 +1,50 @@
+{
+    "animations": {
+        "bumped": ["bumped-01", "bumped-02"],
+        "walk": ["walk-01", "walk-02"]
+    },
+    "frames": {
+        "bumped-01": {
+            "duration": 5000,
+            "frame": { "h": 166, "w": 110, "x": 0, "y": 0 },
+            "rotated": false,
+            "sourceSize": { "h": 166, "w": 110 },
+            "spriteSourceSize": { "h": 166, "w": 110, "x": 0, "y": 0 },
+            "trimmed": false
+        },
+        "bumped-02": {
+            "duration": 5000,
+            "frame": { "h": 166, "w": 110, "x": 110, "y": 0 },
+            "rotated": false,
+            "sourceSize": { "h": 166, "w": 110 },
+            "spriteSourceSize": { "h": 166, "w": 110, "x": 110, "y": 0 },
+            "trimmed": false
+        },
+        "walk-01": {
+            "duration": 5000,
+            "frame": { "h": 166, "w": 110, "x": 220, "y": 0 },
+            "rotated": false,
+            "sourceSize": { "h": 166, "w": 110 },
+            "spriteSourceSize": { "h": 166, "w": 110, "x": 220, "y": 0 },
+            "trimmed": false
+        },
+        "walk-02": {
+            "duration": 5000,
+            "frame": { "h": 166, "w": 110, "x": 330, "y": 0 },
+            "rotated": false,
+            "sourceSize": { "h": 166, "w": 110 },
+            "spriteSourceSize": { "h": 166, "w": 110, "x": 330, "y": 0 },
+            "trimmed": false
+        }
+    },
+    "meta": {
+        "app": "http://www.vocabloo.com/",
+        "format": "RGBA8888",
+        "frameTags": [],
+        "image": "hero.png",
+        "layers": [{ "blendMode": "normal", "name": "Layer 1", "opacity": 255 }],
+        "scale": "1",
+        "size": { "h": 166, "w": 110 },
+        "version": "0.0.1"
+    }
+}

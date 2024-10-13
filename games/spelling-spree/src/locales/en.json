@@ -1,0 +1,24 @@
+{
+    "controls": {
+        "kudos": {
+            "motivationalMessage": "Keep practicing to get even better!",
+            "subtitle": "Puzzle mastered!",
+            "title": "Kudos!"
+        },
+        "playAgainButton": "Play Again",
+        "startButton": "Start",
+        "stats": {
+            "amountOfMistakes": "Amount of mistakes",
+            "amountOfWords": "Amount of words:",
+            "minutes": "m.",
+            "seconds": "s.",
+            "timeSpent": "Time spent:",
+            "title": "Your Performance"
+        },
+        "timesup": {
+            "motivationalMessage": "Try again and keep improving!",
+            "subtitle": "Don't worry, practice makes perfect.",
+            "title": "Time's up!"
+        }
+    }
+}

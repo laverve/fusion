@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import classnames from "classnames";
 import { useTranslation } from "react-i18next";
 
-import { GameContext } from "@laverve/fusion";
+import { useGame } from "@laverve/fusion";
 import { WordSearchContext } from "./WordSearch.context";
 import { I18N_NAMESPACE } from "./types";
 
@@ -12,7 +12,7 @@ export const WordSearchStats: React.FC<WordSearchStatsProps> = ({ classNames = "
     const { foundWords } = useContext(WordSearchContext);
     const { t } = useTranslation(I18N_NAMESPACE);
 
-    const { startTime, endTime } = useContext(GameContext);
+    const { startTime, endTime } = useGame();
 
     const completedInSeconds = Math.round(((endTime || 0) - (startTime || 0)) / 1000);
     const seconds = completedInSeconds % 60;

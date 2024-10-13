@@ -1,7 +1,7 @@
-import React, { createContext, PropsWithChildren, useContext, useEffect, useMemo, useState } from "react";
+import React, { createContext, PropsWithChildren, useEffect, useMemo, useState } from "react";
 
 import { v4 as uuid } from "uuid";
-import { GameContext, GameStatus } from "@laverve/fusion";
+import { useGame, GameStatus } from "@laverve/fusion";
 import { WordSearchBoardCell } from "./types";
 
 export type WordFoundEvent = { word: string; foundWords: string[] };
@@ -45,7 +45,7 @@ export const WordSearchContextProvider: React.FC<WordSearchContextProviderProps>
     events
 }) => {
     const [foundWords, setFoundWords] = useState<string[]>([]);
-    const { stop, status } = useContext(GameContext);
+    const { stop, status } = useGame();
 
     const gridCells: Map<string, WordSearchBoardCell> = useMemo(() => {
         return (

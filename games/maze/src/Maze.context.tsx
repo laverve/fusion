@@ -1,14 +1,5 @@
-import { GameContext, GameStatus } from "@laverve/fusion";
-import React, {
-    createContext,
-    PropsWithChildren,
-    useCallback,
-    useContext,
-    useEffect,
-    useMemo,
-    useRef,
-    useState
-} from "react";
+import { GameStatus, useGame } from "@laverve/fusion";
+import React, { createContext, PropsWithChildren, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { MazeGrid, MazePoint, MazeMoveDirection, MazeHero, MazeResource, MazePredator } from "./types";
 import { useBoardMeasures } from "./helpers/useBoardMeasures";
 import { move } from "./helpers/move";
@@ -73,7 +64,7 @@ export const MazeContextProvider: React.FC<MazeContextProviderProps> = ({
     const [heroLocation, setHeroLocation] = useState<MazePoint>(hero.location);
     const [mazeResources, setMazeResources] = useState<MazeResource[]>(resources);
     const [mazePredators, setMazePredators] = useState<MazePredator[]>(predators);
-    const { status, stop, reset } = useContext(GameContext);
+    const { status, stop, reset } = useGame();
 
     const {
         tileAspectRatio,

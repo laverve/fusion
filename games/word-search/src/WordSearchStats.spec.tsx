@@ -6,7 +6,7 @@ import { describe, it, expect } from "@jest/globals";
 import React, { useContext, useState } from "react";
 
 import { render, fireEvent } from "@testing-library/react";
-import { GameContextProvider, GameContext } from "@laverve/fusion";
+import { GameContextProvider, useGame } from "@laverve/fusion";
 
 import { WordSearchContextProvider, WordSearchContext } from "./WordSearch.context";
 import { WordSearchStats, WordSearchStatsProps } from "./WordSearchStats";
@@ -15,7 +15,7 @@ import "./i18n";
 
 export const TestGameplay: React.FC<{ words: string[] }> = ({ words }) => {
     const { onWordFound } = useContext(WordSearchContext);
-    const { start, stop } = useContext(GameContext);
+    const { start, stop } = useGame();
     const [idx, setIdx] = useState(0);
     return (
         <>

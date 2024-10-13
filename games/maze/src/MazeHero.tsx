@@ -1,10 +1,10 @@
 import React, { useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { DisplayObjectType, GameContext, GameStatus, useDisplayObject, useGlobalEventHandler } from "@laverve/fusion";
+import { DisplayObjectType, GameStatus, useDisplayObject, useGame, useGlobalEventHandler } from "@laverve/fusion";
 import { MazeContext } from "./Maze.context";
 
 export const MazeHero: React.FC = () => {
     const { tileSize, padding, tileAspectRatio, grid, move, hero } = useContext(MazeContext);
-    const { status } = useContext(GameContext);
+    const { status } = useGame();
     const heroDisplayObjectConfig = useMemo(
         () => ({
             type: DisplayObjectType.SPRITE,

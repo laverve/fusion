@@ -1,4 +1,4 @@
-import { ViewContainer, Sprite, Graphics, Texture } from "pixi.js";
+import { ViewContainer, Sprite, Graphics, Texture, AnimatedSprite } from "pixi.js";
 import { GameObjectDisplayObjectConfig } from "./GameObjectDisplayObjectConfig";
 import { DisplayObjectType } from "./DisplayObjectType";
 import { Nullable } from "../types";
@@ -24,6 +24,22 @@ const displayObjectInternalFactory = <T extends Nullable<ViewContainer>>(
                 sprite.scale = displayObjectConfig.scale;
             }
             return sprite as unknown as T;
+        case DisplayObjectType.ANIMATED_SPRITE:
+            // eslint-disable-next-line no-case-declarations
+            const animatedSprite = new AnimatedSprite([]);
+            if (displayObjectConfig.anchor) {
+                animatedSprite.anchor.set(displayObjectConfig.anchor.x, displayObjectConfig.anchor.y);
+            }
+            if (displayObjectConfig.width !== undefined) {
+                animatedSprite.width = displayObjectConfig.width;
+            }
+            if (displayObjectConfig.height !== undefined) {
+                animatedSprite.height = displayObjectConfig.height;
+            }
+            if (displayObjectConfig.scale !== undefined) {
+                animatedSprite.scale = displayObjectConfig.scale;
+            }
+            return animatedSprite as unknown as T;
         case DisplayObjectType.GRAPHICS:
             return new Graphics() as unknown as T;
         default:

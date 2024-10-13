@@ -1,0 +1,57 @@
+{
+    "author": "Victor Pishuk <victor.pishuk@gmail.com>",
+    "bugs": {
+        "url": "https://github.com/laverve/games/issues"
+    },
+    "dependencies": {
+        "@fortawesome/free-solid-svg-icons": "^6.6.0",
+        "@fortawesome/react-fontawesome": "^0.2.2",
+        "@laverve/fusion": "^3.0.0",
+        "@laverve/timer": "^3.1.1",
+        "@laverve/use-parent-size": "^1.0.0",
+        "@types/uuid": "^10.0.0",
+        "classnames": "^2.3.2",
+        "react": "^18.2.0",
+        "react-i18next": "15.0.2",
+        "uuid": "^10.0.0"
+    },
+    "description": "This module offers a set of components needed to configure and play SPelling Spree game.",
+    "files": [
+        "./dist/",
+        "./assets/",
+        "package.json",
+        "package-lock.json",
+        "README.md",
+        "LICENSE"
+    ],
+    "keywords": [
+        "game",
+        "word search"
+    ],
+    "license": "MIT",
+    "main": "./dist/index.js",
+    "name": "@laverve/spelling-spree-game",
+    "peerDependencies": {
+        "@laverve/design-provider": "^5.1.0",
+        "@nextui-org/react": "^2.4.6",
+        "react": "^18.2.0"
+    },
+    "publishConfig": {
+        "access": "restricted"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/laverve/games.git"
+    },
+    "scripts": {
+        "build": "rimraf ./dist && rm -f tsconfig.tsbuildinfo && tsc",
+        "build:dev": "tsc -w",
+        "lint": "eslint .",
+        "lint:staged": "lint-staged",
+        "test": "jest --passWithNoTests"
+    },
+    "type": "module",
+    "types": "./dist/index.d.ts",
+    "version": "1.0.0",
+    "webpack": "./src/index.tsx"
+}

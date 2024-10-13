@@ -5,3 +5,4 @@ dist/
 .ghpages-artifact/
 .eslintcache
 !.envrc
+*.tsbuildinfo

@@ -1,6 +1,6 @@
-import React, { useMemo } from "react";
+import React from "react";
 
-import { GameContextProvider, GameContextProviderProps, StageContextProvider, StageConfig } from "@laverve/fusion";
+import { GameContextProvider, GameContextProviderProps, Layer, World } from "@laverve/fusion";
 import { MazeContextValue, MazeContextProvider, MazeContextProviderProps } from "./Maze.context";
 import { MazeBoard, MazeBoardProps } from "./MazeBoard";
 import { MazeHero } from "./MazeHero";
@@ -10,6 +10,7 @@ import { MazeGameControls } from "./MazeGameControls";
 import { MazeStats } from "./MazeStats";
 import { MazeSidebar } from "./MazeSidebar";
 import { Layout, LayoutProps } from "./Layout";
+import { MazeRoad } from "./MazeRoad";
 
 export type MazeGameProps = {
     events?: MazeContextProviderProps["events"] & GameContextProviderProps["events"];
@@ -37,10 +38,6 @@ export const MazeGame: React.FC<MazeGameProps> = ({
     } = {},
     sidebarConfig = {}
 }) => {
-    const worldConfig = useMemo(() => ({ width: boardWidth, height: boardHeight }), []);
-
-    const sceneConfig: StageConfig = useMemo(() => ({ world: worldConfig, eventMode: "dynamic" }), []);
-
     return (
         <GameContextProvider
             timeout={timeout || 0}
@@ -66,12 +63,19 @@ export const MazeGame: React.FC<MazeGameProps> = ({
                     boardConfig={{
                         children: (
                             <>
-                                <StageContextProvider config={sceneConfig}>
-                                    <MazeBoard assets={assets} />
-                                    <MazeResources />
-                                    <MazeHero />
-                                    <MazePredators />
-                                </StageContextProvider>
+                                <World eventMode="dynamic">
+                                    <Layer>
+                                        <MazeBoard assets={assets} />
+                                    </Layer>
+                                    <Layer>
+                                        <MazeRoad assets={assets} />
+                                    </Layer>
+                                    <Layer>
+                                        <MazeResources />
+                                        <MazePredators />
+                                        <MazeHero />
+                                    </Layer>
+                                </World>
                                 <MazeGameControls statsSlot={<MazeStats />} />
                             </>
                         ),

@@ -14,12 +14,15 @@ npm i --save @laverve/fusion
 
 # Basic Usage Example
 
-1. Create a component with `GameContextProvider` and `StageContextProvider`.
+1. Create a component with `GameContextProvider` and `World`.
+
 ```
 <GameContextProvider timeout={10}>
-    <StageContextProvider config={{world: {width: 300, height: 300}, eventMode: "dynamic}}>
-        <MyAwesomeStage />
-    </StageContextProvider>
+    <World size={{width: 300, height: 300}} eventMode="dynamic">
+        <layer>
+            <MyAwesomeStage />
+        </Layer>
+    </World>
 </GameContextProvider>
 ```
 
@@ -27,7 +30,7 @@ npm i --save @laverve/fusion
 
 ```
 export const MyAwesomeStage: React.FC<MazeHeroProps> = () => {
-    const { status } = useContext(GameContext);
+    const { status } = useGame();
     const displayObjectConfig = useMemo(
         () => ({
             type: DisplayObjectType.SPRITE,
@@ -75,9 +78,8 @@ export const MyAwesomeStage: React.FC<MazeHeroProps> = () => {
 
 # Demos
 
-* [Maze](https://laverve.github.io/fusion/?path=/story/games-maze-gameplay--maze-story)
-* [WordSearch](https://laverve.github.io/fusion/?path=/story/games-wordsearch-gameplay--word-search-story)
-
+-   [Maze](https://laverve.github.io/fusion/?path=/story/games-maze-gameplay--maze-story)
+-   [WordSearch](https://laverve.github.io/fusion/?path=/story/games-wordsearch-gameplay--word-search-story)
 
 # Contribution guidelines
 
@@ -106,7 +108,6 @@ Create a branch to work on your code changes.
 Once you are done with coding, create pull request and get an approval.
 
 Lastly, enjoy your changes.
-
 
 # License
 

@@ -1,9 +1,9 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { AllFederatedEventMap } from "pixi.js";
 
-import { StageContext } from "./Stage.context";
+import { useWorld } from "../hooks";
 
-export const useStageEventHandler = <K extends keyof AllFederatedEventMap>({
+export const useEventHandler = <K extends keyof AllFederatedEventMap>({
     isEnabled = true,
     event,
     callback
@@ -12,9 +12,10 @@ export const useStageEventHandler = <K extends keyof AllFederatedEventMap>({
     event: K;
     callback: (e: AllFederatedEventMap[K]) => unknown;
 }) => {
-    const { application } = useContext(StageContext);
+    const { application, isInitialized } = useWorld();
+
     useEffect(() => {
-        if (!isEnabled) {
+        if (!isEnabled || !isInitialized) {
             return () => {};
         }
 
@@ -27,5 +28,5 @@ export const useStageEventHandler = <K extends keyof AllFederatedEventMap>({
         return () => {
             application.stage.removeEventListener(event, internalCallback);
         };
-    }, [isEnabled, event, callback]);
+    }, [isEnabled, event, application, isInitialized, callback]);
 };
