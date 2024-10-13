@@ -16,5 +16,6 @@ export const MazeRoadTile: React.FC<MazeRoadTileProps> = ({ texture, position }:
         anchor: { x: 0, y: 0 },
         scale: { x: tileAspectRatio, y: tileAspectRatio }
     });
+
     return null;
 };
