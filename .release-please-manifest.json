@@ -1,7 +1,7 @@
 {
     ".": "0.0.10",
     "fusion": "0.0.10",
-    "games/maze": "0.0.10",
-    "games/spelling-spree": "0.0.10",
-    "games/word-search": "0.0.10"
+    "games/maze": "1.0.0",
+    "games/spelling-spree": "1.0.0",
+    "games/word-search": "1.0.0"
 }

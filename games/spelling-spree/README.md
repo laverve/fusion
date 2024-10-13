@@ -1,1 +1,1 @@
-# LaVerve Word Search Game
+# LaVerve Spelling Spree Game
