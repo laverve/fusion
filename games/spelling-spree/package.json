@@ -1,7 +1,7 @@
 {
     "author": "Victor Pishuk <victor.pishuk@gmail.com>",
     "bugs": {
-        "url": "https://github.com/laverve/games/issues"
+        "url": "https://github.com/laverve/fusion/issues"
     },
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.6.0",
@@ -40,7 +40,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/laverve/games.git"
+        "url": "https://github.com/laverve/fusion.git"
     },
     "scripts": {
         "build": "rimraf ./dist && rm -f tsconfig.tsbuildinfo && tsc",

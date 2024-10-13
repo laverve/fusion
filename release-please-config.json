@@ -17,11 +17,11 @@
             "changelog-path": "CHANGELOG.md",
             "release-type": "node"
         },
-        "games/word-search": {
+        "games/spelling-spree": {
             "changelog-path": "CHANGELOG.md",
             "release-type": "node"
         },
-        "games/spelling-spree": {
+        "games/word-search": {
             "changelog-path": "CHANGELOG.md",
             "release-type": "node"
         },
