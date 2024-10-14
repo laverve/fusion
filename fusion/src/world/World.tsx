@@ -44,14 +44,23 @@ export const World: React.FC<PropsWithChildren & WorldProps> = ({ children, even
     }, [size, canvasRef, isInitialized]);
 
     useEffect(() => {
-        if (canvasRef.current && !isInitialized) {
+        if (!isInitialized) {
             application.current
-                .init({
-                    resizeTo: canvasRef.current
-                })
+                .init()
                 .then(() => {
                     setIsInitialized(true);
+                })
+                .catch((e) => {
+                    setIsInitialized(true);
+                    console.error(e);
                 });
+        }
+    }, [canvasRef.current, isInitialized]);
+
+    useEffect(() => {
+        if (isInitialized && canvasRef.current) {
+            application.current.resizeTo = canvasRef.current;
+            application.current.resize();
         }
     }, [canvasRef.current, isInitialized]);
 
