@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.1](https://github.com/laverve/fusion/compare/games-maze-v1.0.0...games-maze-v1.0.1) (2024-10-14)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * pixi-fusion bumped from ^1.0.0 to ^1.0.1
+
 ## [1.0.0](https://github.com/laverve/fusion/compare/games-maze-v1.0.0...games-maze-v1.0.0) (2024-10-13)
 
 

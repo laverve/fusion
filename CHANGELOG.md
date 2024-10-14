@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/laverve/fusion/compare/laverve-monorepo-v1.0.0...laverve-monorepo-v1.0.1) (2024-10-14)
+
+
+### Bug Fixes
+
+* **fusion:** ignore errors during reinitialization ([1d663d3](https://github.com/laverve/fusion/commit/1d663d39add96dd3ce80f157d97597af310d7ce6))
+
 ## [1.0.0](https://github.com/laverve/fusion/compare/laverve-monorepo-v0.0.10...laverve-monorepo-v1.0.0) (2024-10-13)
 
 
