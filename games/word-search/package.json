@@ -10,7 +10,7 @@
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.6.0",
         "@fortawesome/react-fontawesome": "^0.2.2",
-        "pixi-fusion": "^1.0.0",
+        "pixi-fusion": "^1.0.1",
         "@laverve/timer": "^3.1.1",
         "@laverve/use-parent-size": "^1.0.0",
         "classnames": "^2.3.2",
@@ -54,6 +54,6 @@
         "test": "jest --passWithNoTests"
     },
     "types": "./dist/src/index.d.ts",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "webpack": "./src/index.tsx"
 }
