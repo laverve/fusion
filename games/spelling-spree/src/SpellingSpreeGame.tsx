@@ -43,7 +43,7 @@ export const SpellingSpreeGame: React.FC<SpellingSpreeGameProps> = ({
 
     const { ref, height, width } = useParentSize();
 
-    const worldSize = useMemo(() => ({ width: 1402, height: 800 }), []);
+    const worldSize = useMemo(() => ({ width: width, height: height }), [width, height]);
 
     return (
         <I18nextProvider i18n={i18nInstance}>
