@@ -169,7 +169,7 @@ export const SpellingSpreeContextProvider: React.FC<SpellingSpreeContextProvider
     return (
         <SpellingSpreeContext.Provider value={contextValue}>
             {children}
-            <input type="text" ref={inputRef} style={{ opacity: 0, position: "absolute", zIndex: -1 }} />
+            <input type="text" ref={inputRef} style={{ opacity: 0, bottom: 0, position: "absolute", zIndex: -1 }} />
         </SpellingSpreeContext.Provider>
     );
 };
