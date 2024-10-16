@@ -85,7 +85,7 @@ jobs:
               with:
                   package: games/maze
             - uses: ./.github/actions/publish
-              if: ${{ needs.Release-Please.outputs.maze_release_created }}
+              if: ${{ needs.Release-Please.outputs.spelling_spree_release_created }}
               with:
                   package: games/spelling-spree
 
