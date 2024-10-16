@@ -46,7 +46,7 @@ export const SpellingSpreeHero = forwardRef<AnimatedSprite, SpellingSpreeHeroPro
     }, [isCollided]);
 
     useTickerCallback({
-        isEnabled: !isCollided && status === GameStatus.IN_PROGRESS && position.x < -270,
+        isEnabled: !isCollided && status === GameStatus.IN_PROGRESS && position.x < -150,
         callback: () => {
             setPosition(({ x, y }) => ({ x: x + 1, y }));
         }
