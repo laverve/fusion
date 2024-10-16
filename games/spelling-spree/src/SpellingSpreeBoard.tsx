@@ -13,7 +13,7 @@ export const SpellingSpreeBoard: React.FC<SpellingSpreeBoardProps> = ({ isEnable
     useTilingSprite({
         texture: BACKGROUND_TEXTURE_ALIAS,
         anchor: { x: 0.5, y: 0.5 },
-        width: size.width,
+        width: Math.max(size.width, 1400),
         tilePosition
     });
 
