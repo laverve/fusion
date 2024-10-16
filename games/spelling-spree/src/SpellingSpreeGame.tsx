@@ -20,6 +20,7 @@ export type SpellingSpreeGameProps = {
     layout?: PublicLayoutProps;
     lng: string;
     maxSpeed?: number;
+    minSpeed?: number;
     events?: SpellingSpreeContextProviderProps["events"] &
         GameContextProviderProps["events"] & { onPlayAgain?: () => unknown };
     timeout?: number;
@@ -33,6 +34,7 @@ export const SpellingSpreeGame: React.FC<SpellingSpreeGameProps> = ({
     words,
     timeout = 0,
     maxSpeed = -2,
+    minSpeed = -0.8,
     layout,
     wordsList,
     timer
@@ -59,6 +61,7 @@ export const SpellingSpreeGame: React.FC<SpellingSpreeGameProps> = ({
                 <SpellingSpreeContextProvider
                     words={words}
                     maxSpeed={maxSpeed}
+                    minSpeed={minSpeed}
                     events={{ onMistake: events?.onMistake, onWordComplete: events?.onWordComplete }}
                 >
                     <Layout

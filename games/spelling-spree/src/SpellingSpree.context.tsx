@@ -22,6 +22,7 @@ export type SpellingSpreeContextValue = {
     onLetterSelected: (letter: string) => void;
     reset: () => void;
     maxSpeed: number;
+    minSpeed: number;
     letters: Letter[];
     amountOfMistakes: number;
     currentLetter: number;
@@ -30,6 +31,7 @@ export type SpellingSpreeContextValue = {
 };
 
 export const SpellingSpreeContext = createContext<SpellingSpreeContextValue>({
+    minSpeed: -0.8,
     maxSpeed: -2,
     onLetterSelected: () => {},
     reset: () => {},
@@ -41,13 +43,15 @@ export const SpellingSpreeContext = createContext<SpellingSpreeContextValue>({
 });
 
 export type SpellingSpreeContextProviderProps = PropsWithChildren & {
-    maxSpeed: number;
+    maxSpeed?: number;
+    minSpeed?: number;
     words: string[];
     events?: SpellingSpreeContextProviderEvents;
 };
 
 export const SpellingSpreeContextProvider: React.FC<SpellingSpreeContextProviderProps> = ({
-    maxSpeed,
+    maxSpeed = -2,
+    minSpeed = -0.8,
     children,
     words: incomingWords,
     events
@@ -162,9 +166,10 @@ export const SpellingSpreeContextProvider: React.FC<SpellingSpreeContextProvider
             onLetterSelected,
             amountOfMistakes: totalAmountOfMistakes,
             maxSpeed,
+            minSpeed,
             reset
         }),
-        [words, completedWords, currentLetter, totalAmountOfMistakes, maxSpeed, letters, words]
+        [words, completedWords, currentLetter, totalAmountOfMistakes, maxSpeed, minSpeed, letters, words]
     );
 
     return (

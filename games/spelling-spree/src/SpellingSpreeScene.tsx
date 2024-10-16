@@ -25,15 +25,14 @@ const MARGIN_LEFT = -120;
 const LETTER_WIDTH = 30;
 const MAX_SPACE_BETWEEN_LETTERS = 300;
 const SPACE_BETWEEN_WORDS = 300;
-const DEFAULT_SPEED = -1;
 
 export const SpellingSpreeScene: React.FC = () => {
     const { status, stop } = useGame();
     const [isCollided, setIsCollided] = useState(false);
-    const [speed, setSpeed] = useState(DEFAULT_SPEED);
     const [marginLeft, setMarginLeft] = useState(MARGIN_LEFT);
     const { unload, load, isFetched, isFetching } = useAssetManager();
-    const { letters, currentLetter, onLetterSelected, maxSpeed } = useContext(SpellingSpreeContext);
+    const { letters, currentLetter, onLetterSelected, maxSpeed, minSpeed } = useContext(SpellingSpreeContext);
+    const [speed, setSpeed] = useState(minSpeed);
     const letterRef = useRef<Sprite | null>(null);
     const heroRef = useRef<AnimatedSprite | null>(null);
 
@@ -72,7 +71,7 @@ export const SpellingSpreeScene: React.FC = () => {
         if (status === GameStatus.IN_PROGRESS) {
             setIsCollided(false);
             setMarginLeft(MARGIN_LEFT);
-            setSpeed(DEFAULT_SPEED);
+            setSpeed(minSpeed);
         }
     }, [status]);
 
