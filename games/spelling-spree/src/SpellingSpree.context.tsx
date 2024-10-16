@@ -149,6 +149,7 @@ export const SpellingSpreeContextProvider: React.FC<SpellingSpreeContextProvider
         if (status === GameStatus.IN_PROGRESS || status === GameStatus.READY) {
             reset();
             inputRef.current?.focus();
+            inputRef?.current?.scrollIntoView();
         }
     }, [status, inputRef.current]);
 
