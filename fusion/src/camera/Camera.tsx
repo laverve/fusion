@@ -15,12 +15,12 @@ export const Camera: React.FC<CameraProps & PropsWithChildren> = ({ children, cl
     const [isReady, setIsReady] = useState(false);
     const [followContainer, setFollowContainer] = useState<Container | null>(null);
     const [ensureVisibleOptions, setEnsureVisibleOptions] = useState<EnsureVisibleOptions | null>(null);
-    const { application, isInitialized, size } = useWorld();
+    const { application, size } = useWorld();
     const { addObject: addObjectToStage, removeObject: removeObjectFromStage } = useStage();
     const [things, setThings] = useState<Container[]>([]);
     const viewport = useMemo(
         () =>
-            isInitialized
+            application
                 ? new ViewportContainer({
                       worldHeight: size.height,
                       worldWidth: size.width,
@@ -29,7 +29,7 @@ export const Camera: React.FC<CameraProps & PropsWithChildren> = ({ children, cl
                       events: application?.renderer?.events
                   })
                 : null,
-        [size, application, isInitialized]
+        [size, application]
     );
 
     const addObject = useCallback(
@@ -55,10 +55,10 @@ export const Camera: React.FC<CameraProps & PropsWithChildren> = ({ children, cl
     );
 
     useEffect(() => {
-        if (viewport && clampZoom) {
+        if (viewport && clampZoom && application) {
             viewport.clampZoom(clampZoom);
         }
-    }, [clampZoom, isInitialized]);
+    }, [clampZoom]);
 
     useEffect(() => {
         if (viewport) {
@@ -69,14 +69,14 @@ export const Camera: React.FC<CameraProps & PropsWithChildren> = ({ children, cl
                 viewport.height = size.height;
             }
         }
-    }, [size, viewport?.uid, isInitialized]);
+    }, [size, viewport?.uid, application]);
 
     useEffect(() => {
-        if (!isInitialized || !viewport) {
+        if (!application || !viewport) {
             return;
         }
         viewport?.moveCenter(0, 0);
-    }, [viewport, size, isInitialized]);
+    }, [viewport, size, application]);
 
     useEffect(() => {
         if (!viewport) {
@@ -90,7 +90,7 @@ export const Camera: React.FC<CameraProps & PropsWithChildren> = ({ children, cl
             removeObjectFromStage(viewport);
             setIsReady(false);
         };
-    }, [application, isInitialized]);
+    }, [viewport?.uid]);
 
     useEffect(() => {
         if (!viewport || !isReady) {

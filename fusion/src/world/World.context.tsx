@@ -6,8 +6,7 @@ export type WorldContextValue = {
         width: number;
         height: number;
     };
-    readonly application: Application;
-    readonly isInitialized: boolean;
+    application: Application | null;
 };
 
 export const WorldContext = createContext<WorldContextValue>({} as unknown as WorldContextValue);

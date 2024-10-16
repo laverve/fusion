@@ -5,7 +5,7 @@ import { useWorld } from "../hooks";
 import { Layer } from "../layer";
 
 export const Stage: React.FC<PropsWithChildren> = ({ children }) => {
-    const { application, isInitialized } = useWorld();
+    const { application } = useWorld();
     const [things, setThings] = useState<Container[]>([]);
 
     const addObject = useCallback(
@@ -31,7 +31,7 @@ export const Stage: React.FC<PropsWithChildren> = ({ children }) => {
     );
 
     useEffect(() => {
-        if (!isInitialized) {
+        if (!application) {
             return;
         }
 
@@ -40,7 +40,7 @@ export const Stage: React.FC<PropsWithChildren> = ({ children }) => {
         return () => {
             application.stage.removeChild(...things);
         };
-    }, [things, isInitialized]);
+    }, [things, application]);
 
     return (
         <StageContext.Provider value={conextValue}>

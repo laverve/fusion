@@ -10,10 +10,10 @@ export const useTickerCallback = <T = unknown>({
     isEnabled?: boolean;
     callback: TickerCallback<T>;
 }) => {
-    const { application, isInitialized } = useWorld();
+    const { application } = useWorld();
 
     useEffect(() => {
-        if (!isInitialized || !isEnabled) {
+        if (!application || !isEnabled) {
             return;
         }
 
@@ -21,5 +21,5 @@ export const useTickerCallback = <T = unknown>({
         return () => {
             application.ticker.remove(callback);
         };
-    }, [isEnabled, application, isInitialized, callback]);
+    }, [isEnabled, application, callback]);
 };

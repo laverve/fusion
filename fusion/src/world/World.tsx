@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, createRef, useEffect, useMemo, useRef, useState } from "react";
+import React, { PropsWithChildren, createRef, useEffect, useMemo, useState } from "react";
 import { Application, EventMode } from "pixi.js";
 import { WorldContextValue, WorldContext } from "./World.context";
 import { Stage } from "../stage";
@@ -13,10 +13,9 @@ type WorldProps = {
 };
 
 export const World: React.FC<PropsWithChildren & WorldProps> = ({ children, eventMode, size }) => {
-    const [isInitialized, setIsInitialized] = useState(false);
     const canvasRef = createRef<HTMLDivElement>();
 
-    const application = useRef(new Application());
+    const [applicationRef, setApplicationRef] = useState<Application | null>(null);
 
     const worldSize = useMemo(() => {
         if (size) {
@@ -31,65 +30,61 @@ export const World: React.FC<PropsWithChildren & WorldProps> = ({ children, even
             };
         }
 
-        if (!isInitialized) {
+        if (!applicationRef) {
             return {
                 width: 0,
                 height: 0
             };
         }
+
         return {
-            width: application.current.screen.width,
-            height: application.current.screen.height
+            width: applicationRef.screen.width,
+            height: applicationRef.screen.height
         };
-    }, [size, canvasRef, isInitialized]);
+    }, [size, canvasRef.current, applicationRef]);
 
     useEffect(() => {
-        if (!isInitialized) {
-            application.current
-                .init()
-                .then(() => {
-                    setIsInitialized(true);
-                })
-                .catch((e) => {
-                    setIsInitialized(true);
-                    console.error(e);
-                });
+        if (!applicationRef) {
+            const application = new Application();
+            application.init().then(() => {
+                setApplicationRef(application);
+            });
         }
-    }, [canvasRef.current, isInitialized]);
+    }, []);
 
     useEffect(() => {
-        if (isInitialized && canvasRef.current) {
-            application.current.resizeTo = canvasRef.current;
-            application.current.resize();
+        if (applicationRef && canvasRef.current) {
+            applicationRef.resizeTo = canvasRef.current;
+            applicationRef.resize();
         }
-    }, [canvasRef.current, isInitialized]);
+    }, [canvasRef.current, applicationRef]);
 
     const conextValue = useMemo<WorldContextValue>(
         () => ({
-            application: application.current,
-            size: worldSize,
-            isInitialized
+            application: applicationRef,
+            size: worldSize
         }),
-        [isInitialized, worldSize]
+        [applicationRef, worldSize]
     );
 
     useEffect(() => {
-        if (!isInitialized) {
+        if (!applicationRef) {
             return;
         }
-
-        canvasRef.current?.appendChild(application.current.canvas);
+        canvasRef.current?.appendChild(applicationRef.canvas);
 
         return () => {
-            canvasRef.current?.removeChild(application.current.canvas);
+            if (applicationRef) {
+                canvasRef.current?.removeChild(applicationRef.canvas);
+            }
         };
-    }, [canvasRef.current, isInitialized]);
+    }, [canvasRef.current, applicationRef]);
 
     useEffect(() => {
-        if (application.current) {
-            application.current.stage.eventMode = eventMode;
+        if (applicationRef) {
+            applicationRef.stage.eventMode = eventMode;
         }
-    }, [eventMode, application.current, isInitialized]);
+    }, [eventMode, applicationRef]);
 
     return (
         <WorldContext.Provider value={conextValue}>
