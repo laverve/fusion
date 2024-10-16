@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/laverve/fusion/compare/games-spelling-spree-v1.0.5...games-spelling-spree-v1.1.0) (2024-10-16)
+
+
+### Features
+
+* **spelling-spree:** add support for minSpeed ([6b29f01](https://github.com/laverve/fusion/commit/6b29f01a9eeb691a606e79ddf3bd976bbef298bb))
+
+
+### Bug Fixes
+
+* **spelling-spree:** fixes positioning of hero ([53569df](https://github.com/laverve/fusion/commit/53569dff9720dad619b0c80c8fb2910a09c53e14))
+* **spelling-spree:** scroll to input when focusing ([d4fbdcd](https://github.com/laverve/fusion/commit/d4fbdcd54e6ccb06e6de6ba7c89bb07a0f5d8e79))
+
 ## [1.0.5](https://github.com/laverve/fusion/compare/games-spelling-spree-v1.0.4...games-spelling-spree-v1.0.5) (2024-10-16)
 
 
