@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/laverve/fusion/compare/pixi-fusion-v1.0.1...pixi-fusion-v1.0.2) (2024-10-16)
+
+
+### Bug Fixes
+
+* **spelling-spree:** fixes initialization of Pixi application ([05459bb](https://github.com/laverve/fusion/commit/05459bb92dfb5708990bf41d57c1ae87c52d541e))
+
 ## [1.0.1](https://github.com/laverve/fusion/compare/pixi-fusion-v1.0.0...pixi-fusion-v1.0.1) (2024-10-14)
 
 
