@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.3](https://github.com/laverve/fusion/compare/games-spelling-spree-v1.0.2...games-spelling-spree-v1.0.3) (2024-10-16)
+
+
+### Bug Fixes
+
+* **spelling-spree:** fixes translation for amount of mistakes ([c6b7014](https://github.com/laverve/fusion/commit/c6b70141dcd9c30cc0f7b9871c92948a6d1a41cc))
+* **spelling-spree:** fixes worlds size ([a11995e](https://github.com/laverve/fusion/commit/a11995ec50095f6fe42487cc3b474aacb5cfff4d))
+* **wpelling-spree:** improves wordlist ([7290f6f](https://github.com/laverve/fusion/commit/7290f6f44bd5cac090201860a400c7c16eb67d03))
+
 ## [1.0.2](https://github.com/laverve/fusion/compare/games-spelling-spree-v1.0.1...games-spelling-spree-v1.0.2) (2024-10-16)
 
 
