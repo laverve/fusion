@@ -27,7 +27,7 @@ export const SpellingSpreeStats: React.FC<SpellingSpreeStatsProps> = ({ classNam
             </div>
             <div className="flex flex-row justify-stretch gap-1">
                 <div className="body-2 flex-1 text-right">
-                    <strong>{t("controls.stats.amountOfWords")}</strong>
+                    <strong>{t("controls.stats.amountOfMistakes")}</strong>
                 </div>
                 <div className="body-2 flex-1 text-center">{amountOfMistakes}</div>
             </div>
