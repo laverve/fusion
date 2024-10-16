@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/laverve/fusion/compare/laverve-monorepo-v1.0.3...laverve-monorepo-v1.0.4) (2024-10-16)
+
+
+### Bug Fixes
+
+* **spelling-spree:** fixes background sizing ([1972098](https://github.com/laverve/fusion/commit/1972098ce837ad89ab5397ea2932b219fec6efc1))
+
 ## [1.0.3](https://github.com/laverve/fusion/compare/laverve-monorepo-v1.0.2...laverve-monorepo-v1.0.3) (2024-10-16)
 
 
