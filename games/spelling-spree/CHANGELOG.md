@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.2](https://github.com/laverve/fusion/compare/games-spelling-spree-v1.0.1...games-spelling-spree-v1.0.2) (2024-10-16)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * pixi-fusion bumped from ^1.0.1 to ^1.0.2
+
 ## [1.0.1](https://github.com/laverve/fusion/compare/games-spelling-spree-v1.0.0...games-spelling-spree-v1.0.1) (2024-10-14)
 
 
