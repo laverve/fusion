@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/laverve/fusion/compare/laverve-monorepo-v1.0.4...laverve-monorepo-v1.0.5) (2024-10-16)
+
+
+### Bug Fixes
+
+* **spelling-spree:** place input in the bottom so it works on mobile devices ([5437e5c](https://github.com/laverve/fusion/commit/5437e5c5a4615bd2944d972c13a9f0f713a6f438))
+
 ## [1.0.4](https://github.com/laverve/fusion/compare/laverve-monorepo-v1.0.3...laverve-monorepo-v1.0.4) (2024-10-16)
 
 
