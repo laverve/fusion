@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/laverve/fusion/compare/games-spelling-spree-v1.1.0...games-spelling-spree-v1.1.1) (2024-10-17)
+
+
+### Bug Fixes
+
+* **spelling-spree:** improves performance for mobile devices ([e264ea1](https://github.com/laverve/fusion/commit/e264ea1f1c7a5e147fa7c6c5a4ce0fea15780172))
+
 ## [1.1.0](https://github.com/laverve/fusion/compare/games-spelling-spree-v1.0.5...games-spelling-spree-v1.1.0) (2024-10-16)
 
 
