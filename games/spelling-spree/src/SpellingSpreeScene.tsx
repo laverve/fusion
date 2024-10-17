@@ -62,8 +62,8 @@ export const SpellingSpreeScene: React.FC = () => {
 
     useEffect(() => {
         const completionPercentage = currentLetter / letters.length;
-        if (completionPercentage > 0.4 && speed > maxSpeed) {
-            setSpeed(Math.min(speed * (1 + completionPercentage), maxSpeed));
+        if (completionPercentage > 0.25 && speed > maxSpeed) {
+            setSpeed(Math.min(maxSpeed * completionPercentage, maxSpeed));
         }
     }, [currentLetter, letters, speed]);
 

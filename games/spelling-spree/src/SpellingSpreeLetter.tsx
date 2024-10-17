@@ -12,14 +12,14 @@ type SpellingSpreeLetterProps = {
 };
 
 export const SpellingSpreeLetter = forwardRef<Sprite, SpellingSpreeLetterProps>(({ letter, x, isHidden }, ref) => {
-    const [position, setPosition] = useState({ x, y: 120 });
+    const [position, setPosition] = useState({ x, y: 150 });
     const [skew, setSkew] = useState({ x: 0, y: 0 });
     const [isVisible, setIsVisible] = useState(true);
 
     const sprite = useSprite({
         texture: LETTER_BACKGROUND_ALIAS,
         anchor: { x: 0.5, y: 0.5 },
-        scale: 1.5,
+        scale: 1,
         position,
         skew,
         visible: isVisible

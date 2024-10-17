@@ -34,7 +34,7 @@ export const SpellingSpreeGame: React.FC<SpellingSpreeGameProps> = ({
     words,
     timeout = 0,
     maxSpeed = -2,
-    minSpeed = -0.8,
+    minSpeed = -0.5,
     layout,
     wordsList,
     timer

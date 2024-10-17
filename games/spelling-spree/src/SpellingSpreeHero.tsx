@@ -13,13 +13,13 @@ type SpellingSpreeHeroProps = {
 export const SpellingSpreeHero = forwardRef<AnimatedSprite, SpellingSpreeHeroProps>(({ isCollided }, ref) => {
     const { status } = useGame();
     const [isPlaying, setIsPlaying] = useState(true);
-    const [position, setPosition] = useState({ x: -400, y: 125 });
+    const [position, setPosition] = useState({ x: -400, y: 160 });
     const [animation, setAnimation] = useState("walk");
 
     const { ensureVisible } = useCamera();
 
     const heroSprite = useAnimatedSprite({
-        scale: 1,
+        scale: 0.5,
         animation,
         texture: HERO_TEXTURE_ALIAS,
         spritesheet,
@@ -46,7 +46,7 @@ export const SpellingSpreeHero = forwardRef<AnimatedSprite, SpellingSpreeHeroPro
     }, [isCollided]);
 
     useTickerCallback({
-        isEnabled: !isCollided && status === GameStatus.IN_PROGRESS && position.x < -150,
+        isEnabled: !isCollided && status === GameStatus.IN_PROGRESS && position.x < -350,
         callback: () => {
             setPosition(({ x, y }) => ({ x: x + 1, y }));
         }
@@ -54,7 +54,12 @@ export const SpellingSpreeHero = forwardRef<AnimatedSprite, SpellingSpreeHeroPro
 
     useEffect(() => {
         if (heroSprite) {
-            ensureVisible(heroSprite);
+            ensureVisible({
+                x: heroSprite.x,
+                y: heroSprite.y,
+                width: heroSprite.width,
+                height: heroSprite.height
+            });
         }
     }, [heroSprite?.uid]);
 
