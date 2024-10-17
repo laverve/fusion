@@ -1,4 +1,4 @@
-import React, { createContext, PropsWithChildren, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { createContext, PropsWithChildren, useCallback, useEffect, useMemo, useState } from "react";
 
 import { GameStatus, useGame } from "pixi-fusion";
 
@@ -56,8 +56,6 @@ export const SpellingSpreeContextProvider: React.FC<SpellingSpreeContextProvider
     words: incomingWords,
     events
 }) => {
-    const inputRef = useRef<HTMLInputElement>(null);
-
     const words = useMemo(() => incomingWords.map((word) => word.toLocaleLowerCase()), [incomingWords]);
     const [completedWords, setCompletedWords] = useState<string[]>([]);
     const [currentLetter, setCurrentLetter] = useState(0);
@@ -152,10 +150,8 @@ export const SpellingSpreeContextProvider: React.FC<SpellingSpreeContextProvider
     useEffect(() => {
         if (status === GameStatus.IN_PROGRESS || status === GameStatus.READY) {
             reset();
-            inputRef.current?.focus();
-            inputRef?.current?.scrollIntoView();
         }
-    }, [status, inputRef.current]);
+    }, [status]);
 
     const contextValue = useMemo(
         () => ({
@@ -172,10 +168,5 @@ export const SpellingSpreeContextProvider: React.FC<SpellingSpreeContextProvider
         [words, completedWords, currentLetter, totalAmountOfMistakes, maxSpeed, minSpeed, letters, words]
     );
 
-    return (
-        <SpellingSpreeContext.Provider value={contextValue}>
-            {children}
-            <input type="text" ref={inputRef} style={{ opacity: 0, bottom: 0, position: "absolute", zIndex: -1 }} />
-        </SpellingSpreeContext.Provider>
-    );
+    return <SpellingSpreeContext.Provider value={contextValue}>{children}</SpellingSpreeContext.Provider>;
 };

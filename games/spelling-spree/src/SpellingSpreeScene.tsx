@@ -27,6 +27,7 @@ const MAX_SPACE_BETWEEN_LETTERS = 300;
 const SPACE_BETWEEN_WORDS = 300;
 
 export const SpellingSpreeScene: React.FC = () => {
+    const inputRef = useRef<HTMLInputElement>(null);
     const { status, stop } = useGame();
     const [isCollided, setIsCollided] = useState(false);
     const [marginLeft, setMarginLeft] = useState(MARGIN_LEFT);
@@ -124,6 +125,15 @@ export const SpellingSpreeScene: React.FC = () => {
         }
     });
 
+    useEffect(() => {
+        if (status === GameStatus.IN_PROGRESS || status === GameStatus.READY) {
+            inputRef.current?.focus();
+            setTimeout(() => {
+                inputRef?.current?.scrollIntoView();
+            }, 100);
+        }
+    }, [status, inputRef.current]);
+
     if (!isFetched || isFetching) {
         return null;
     }
@@ -143,6 +153,7 @@ export const SpellingSpreeScene: React.FC = () => {
                 ))}
                 <SpellingSpreeHero ref={heroRef} isCollided={isCollided} />
             </Layer>
+            <input type="text" ref={inputRef} style={{ opacity: 0, bottom: 0, position: "absolute", zIndex: -1 }} />
         </Camera>
     );
 };
